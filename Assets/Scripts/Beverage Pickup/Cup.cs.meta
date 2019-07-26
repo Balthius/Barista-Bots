@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 9a36e54f1a121fa4f973841205243419
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - cleanCup: {fileID: 21300000, guid: 68f2b3a09e511bb49b7fa8bb294f1350, type: 3}
+  - dirtySprite1: {fileID: 21300000, guid: 02f32a56604c62c498440e35fb5c44df, type: 3}
+  - dirtySprite2: {fileID: 21300000, guid: 81ed853cbe7e85b46919ca3efbe4184f, type: 3}
+  - dirtySprite3: {fileID: 21300000, guid: 67e3689fb0dc0794a931f7d8a72966ec, type: 3}
+  - dirtySprite4: {fileID: 21300000, guid: ab3ed4abfcdcf5f4dad7c1c0a8c9ec26, type: 3}
+  - gc: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

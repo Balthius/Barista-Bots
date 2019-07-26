@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Button
+  - Row
+  - Block
+  - Move
+  - Wall
+  - GameEnd
+  - Machine
+  - Drink
+  - ShopItem
+  - GoToItem
+  - OrderPanel
+  - Plate
+  - Cup
+  - Arm
+  - Combined
+  - Destroyer
+  - ActiveOrder
+  - Belt
+  - UseItemBar
+  - FullHand
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Wall
+  - Blocks
+  - Row
+  - OrderPanel
+  - Arms
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: 2
+    uniqueID: 554221089
+    locked: 0
+  - name: Board
+    uniqueID: 945250371
+    locked: 0
+  - name: Table
+    uniqueID: 2460447217
+    locked: 0
+  - name: Reactions
+    uniqueID: 559614779
+    locked: 0
+  - name: UI
+    uniqueID: 2768455333
+    locked: 0
