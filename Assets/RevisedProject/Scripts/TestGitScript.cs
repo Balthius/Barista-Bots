@@ -7,7 +7,7 @@ public class TestGitScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        TestFunc();
     }
 
     // Update is called once per frame
@@ -15,4 +15,12 @@ public class TestGitScript : MonoBehaviour
     {
         
     }
+
+    private void TestFunc()
+    {
+        print("Testing out Git Branches");
+        print("Testing out Git Branches");
+        print("Testing out Git Branches");
+    }
+    
 }
