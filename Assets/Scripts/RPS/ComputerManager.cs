@@ -14,6 +14,7 @@ namespace CustomerServiceCombat
         SwipeDetectionOnUIElement swipeDetector;
         float swipeThreshold;
         int emotionState = 0;
+        int prevEmotionState = -1;
 
         void Awake()
         {
@@ -39,7 +40,10 @@ namespace CustomerServiceCombat
             switch (eventName)
             {
                 case "FIGHT":
+                    prevEmotionState = emotionState;
                     eventSubscription.Notify("EMOTION_SELECTED", emotionState);
+                    emotionState = (++emotionState + 3) % 3;
+                    animator.SetInteger("emotionState", emotionState);
                     break;
             }
         }
@@ -52,6 +56,12 @@ namespace CustomerServiceCombat
             }
 
             emotionState = ((deltaX > 0 ? ++emotionState : --emotionState) + 3) % 3;
+            
+            if (emotionState == prevEmotionState)
+            {
+                emotionState = ((deltaX > 0 ? ++emotionState : --emotionState) + 3) % 3;
+            }
+
             animator.SetInteger("emotionState", emotionState);
         }
     }
