@@ -6,16 +6,40 @@ public class ArmController : MonoBehaviour
 {
     // Start is called before the first frame update
    
-    [SerializeField] float yMovement;
+    [SerializeField] float yMovement, reverseMovement;
     private bool hasCollided = false;
 
     public bool hasObj = false;
     public GameObject hasHit;
 
+    private bool emptyHanded = true;
+
+    private float timeExisted;
+
     // Update is called once per frame
+    private void Start() 
+    {
+        reverseMovement = (yMovement * -1) * 1.3f;
+    }
     void Update()
     {
+        if(emptyHanded)
+        {
             transform.Translate(new Vector2(0,yMovement));
+        }
+        else if(!emptyHanded)
+        {
+            transform.Translate(new Vector2(0,reverseMovement));
+        }
+    
+        if(hasHit != null && hasHit.gameObject.name == "FailWall")
+        {
+            
+            emptyHanded = false;
+           // errant hands keep getting past the wall when using trigger checks
+           ObjectGrabbedCheck(false);
+        }
+
     }
 
     
@@ -23,20 +47,20 @@ public class ArmController : MonoBehaviour
     public static event DrinkGrabbed DrinkDrunk;
     private void OnTriggerEnter2D(Collider2D other) 
     {  
-        hasHit = other.gameObject;
+        hasHit = other.gameObject;// used to debug
          if(!hasCollided)
-        {
-            
+        { 
             hasCollided = true;
-            if(other.gameObject.tag == "Wall")
-            {
-                ObjectGrabbedCheck(false);
-            yMovement *= -1;
-            }
-                 if(other.gameObject.tag == "Combined" && !hasObj)
+            
+            if(other.gameObject.tag == "Combined" && !hasObj)
             {
                 ObjectGrabbedCheck(true);
-            yMovement *= -1;
+                GameManager gm = FindObjectOfType<GameManager>();
+                gm.CheckToRefill();
+            }
+            else
+            {
+               emptyHanded = true; 
             }
              
         }
@@ -45,6 +69,7 @@ public class ArmController : MonoBehaviour
     public void ObjectGrabbedCheck(bool grabbedCup)
     {  
         
+        emptyHanded = false;
         if(grabbedCup == false)
         {
             GetComponent<Animator>().SetTrigger("GrabCutlery");
@@ -59,11 +84,10 @@ public class ArmController : MonoBehaviour
     }
      private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Destroyer" && hasObj)
+        if(other.gameObject.name == "SucceedWall" && gameObject.tag == "FullHand")
         {
             DrinkDrunk();
             Destroy(this.gameObject);
         }
-        
     }
 }

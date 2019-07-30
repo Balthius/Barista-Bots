@@ -45,14 +45,26 @@ public class GameManager : MonoBehaviour
         {
             int x = Random.Range(-400,400);
             
-            GameObject newArm = Instantiate(armObj, new Vector3(x,1100,0), Quaternion.identity);
+            GameObject newArm = Instantiate(armObj, new Vector3(x,1250,0), Quaternion.identity);
         }
-    public void CreateCleanObj(GameObject obj)
+    private void CreateCleanObj(GameObject obj)
     {
         int x = Random.Range(-400,400);
         int y = Random.Range(-300,300);
 
         GameObject newObj = Instantiate(obj, new Vector3(x,y,0), Quaternion.identity);
+    }
+
+    public void CheckToRefill()
+    {
+        if(cleanDishes > 0)
+        {
+            CreateCleanObj(cleanDish);
+        }
+        if(cleanCups > 0)
+        {
+            CreateCleanObj(cleanCup);
+        }
     }
      
 

@@ -6,9 +6,6 @@ public class DirtyController : MonoBehaviour
 {
 
     [SerializeField] Transform dishPit;
-
-    [SerializeField] GameObject[] cleanDish;//0 Cup 1 Dish
-
     [SerializeField] private Sprite[] dishSprites;
     [SerializeField] GameManager gameManager;
 
@@ -45,12 +42,10 @@ public class DirtyController : MonoBehaviour
                 if(gameObject.tag == "Cup")
                 {
                     gm.cleanCups++;
-                    gm.CreateCleanObj(cleanDish[0]);
                 }
                 else if(gameObject.tag == "Dish")
                 {
                     gm.cleanDishes++;
-                    gm.CreateCleanObj(cleanDish[1]);
 
                 }
                     Destroy(this.gameObject);

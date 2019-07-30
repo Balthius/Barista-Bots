@@ -8,12 +8,11 @@ public class DishController : MonoBehaviour
     private Vector3 screenPoint;
     private Vector3 offset;
 
+
     void OnMouseDown()
     {
         if (isPickedUp == false && Input.touchCount == 1)
         {
-            
-        Debug.Log("Should respond to touch");
             isPickedUp = true;
             screenPoint = Camera.main.WorldToScreenPoint(transform.position);
             offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
@@ -35,13 +34,5 @@ public class DishController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.tag == "Arm" && gameObject.tag == "Combined")
-        {
-            transform.parent = other.gameObject.transform;
-            
-            other.tag = "FullHand";
-        }
-    }
+ 
 }
