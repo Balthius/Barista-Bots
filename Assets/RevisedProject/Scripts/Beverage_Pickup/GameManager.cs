@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     private void OnEnable() 
     {
         StartCoroutine(SpawnArms());
-        ArmController.DrinkDrunk += DishGrabbed;
+        SucceedManager.DrinkDrunk += DishGrabbed;
     }
 
 
@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     }
     private void DishGrabbed()
     {
+        Debug.Log("Dish grabbed");
         cleanDishes--;
         cleanCups--;
     }

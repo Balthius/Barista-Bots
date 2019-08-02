@@ -43,20 +43,20 @@ public class ArmController : MonoBehaviour
     }
 
     
-    public delegate void DrinkGrabbed();
-    public static event DrinkGrabbed DrinkDrunk;
+   
     private void OnTriggerEnter2D(Collider2D other) 
     {  
         hasHit = other.gameObject;// used to debug
          if(!hasCollided)
         { 
             hasCollided = true;
-            
-            if(other.gameObject.tag == "Combined" && !hasObj)
+            CupController otherCup = other.gameObject.GetComponent<CupController>();
+            if(otherCup != null && otherCup.combined && !hasObj)
             {
                 ObjectGrabbedCheck(true);
                 GameManager gm = FindObjectOfType<GameManager>();
                 gm.CheckToRefill();
+                other.transform.parent = this.gameObject.transform;
             }
             else
             {
@@ -82,12 +82,5 @@ public class ArmController : MonoBehaviour
             hasObj = true;
         }
     }
-     private void OnTriggerExit2D(Collider2D other)
-    {
-        if(other.gameObject.name == "SucceedWall" && gameObject.tag == "FullHand")
-        {
-            DrinkDrunk();
-            Destroy(this.gameObject);
-        }
-    }
+    
 }

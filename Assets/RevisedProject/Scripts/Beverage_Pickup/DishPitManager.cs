@@ -14,7 +14,7 @@ public class DishPitManager : MonoBehaviour
 
     private void OnEnable() 
     {
-        ArmController.DrinkDrunk += SpawnDirty;
+        SucceedManager.DrinkDrunk += SpawnDirty;
     }
 
     public void SpawnDirty()

@@ -10,8 +10,8 @@ public class DishController : MonoBehaviour
 
 
     void OnMouseDown()
-    {
-        if (isPickedUp == false && Input.touchCount == 1)
+    {// && Input.touchCount == 1 removed to test
+        if (!isPickedUp)
         {
             isPickedUp = true;
             screenPoint = Camera.main.WorldToScreenPoint(transform.position);
@@ -20,8 +20,10 @@ public class DishController : MonoBehaviour
     }
 
     private void OnMouseUp()
-     {
+    {           
+
         isPickedUp = false;
+      
     }
 
     void OnMouseDrag()

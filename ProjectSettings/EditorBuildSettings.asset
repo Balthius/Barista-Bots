@@ -15,15 +15,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Cafe.unity
     guid: ae17583808c52de44801ee0f30822c41
   - enabled: 0
-    path: Assets/Scenes/Minigames/Customer_Service.unity
-    guid: 659ebe4c072fd6e42827c49aa7ad61bb
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Minigames/Barista_Beverage.unity
     guid: 8b84180e68c97764786e5c0f891cc3e4
   - enabled: 1
     path: Assets/Scenes/Minigames/Barista_BeverageExport.unity
     guid: aef602100fe3f8f43a7aa443b6afebbf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Minigames/Beverage_Pickup.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
