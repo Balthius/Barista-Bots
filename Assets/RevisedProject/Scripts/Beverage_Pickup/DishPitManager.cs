@@ -14,7 +14,7 @@ public class DishPitManager : MonoBehaviour
 
     private void OnEnable() 
     {
-        SucceedManager.DrinkDrunk += SpawnDirty;
+        SucceedManager.SuccessEvent += SpawnDirty;
     }
 
     public void SpawnDirty()
@@ -22,12 +22,12 @@ public class DishPitManager : MonoBehaviour
         if(dishActive == false)
         {
             GameManager gm = gameManager.GetComponent<GameManager>();
-            if(gm.cleanCups > 1)
+            if(gm.cleanCupCount > 1)
             {
             Instantiate(dirtyCup, dirtyCupSpawn.position, Quaternion.identity);
             }
 
-            if(gm.cleanDishes > 1)
+            if(gm.cleanDishCount > 1)
             {
             Instantiate(dirtyDish, dirtyDishSpawn.position, Quaternion.identity);
             }

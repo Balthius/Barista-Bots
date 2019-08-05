@@ -11,10 +11,10 @@ public class CupController : MonoBehaviour
     
     private Vector3 screenPoint;
     private Vector3 offset;
-    private bool isPickedUp = false;
+    private bool playerTouching = false;
     public bool combined = false;
 
-    private bool beingHeld = false;
+    public bool beingHeld = false;
     //CupMovement
 
     private void Update() {
@@ -23,9 +23,9 @@ public class CupController : MonoBehaviour
     }
     void OnMouseDown()
     {// && Input.touchCount == 1 removed to test
-        if (!isPickedUp && !beingHeld)
+        if (!playerTouching && !beingHeld)
         {
-            isPickedUp = true;
+            playerTouching = true;
             screenPoint = Camera.main.WorldToScreenPoint(transform.position);
             offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
         }
@@ -34,13 +34,13 @@ public class CupController : MonoBehaviour
     private void OnMouseUp()
     {           
 
-        isPickedUp = false;
+        playerTouching = false;
       
     }
 
     void OnMouseDrag()
     {// && Input.touchCount == 1
-        if (isPickedUp == true)
+        if (playerTouching == true)
         {
 
             //Mouse doesnt count as a touchcount for testing
@@ -68,7 +68,7 @@ public class CupController : MonoBehaviour
             GameObject dish = Instantiate(dishObj, transform.position, Quaternion.identity);
             dish.transform.parent = this.gameObject.transform;
             combined = true;
-            isPickedUp = false;//Backup bool check
+            playerTouching = false;//Backup bool check
             this.gameObject.name = "CombinedBeverage";
         }
     }

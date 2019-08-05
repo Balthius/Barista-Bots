@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int cleanDishes, cleanCups, strikes, armSpawnRate = 5;
+    public int cleanDishCount, cleanCupCount, strikes, armSpawnRate = 5;
+
+    [SerializeField]private int negY, posY, negX, posX;
     [SerializeField] GameObject cleanDish, cleanCup, armObj;
 
 
@@ -20,7 +22,7 @@ public class GameManager : MonoBehaviour
     private void OnEnable() 
     {
         StartCoroutine(SpawnArms());
-        SucceedManager.DrinkDrunk += DishGrabbed;
+        SucceedManager.SuccessEvent += DishGrabbed;
     }
 
 
@@ -32,9 +34,8 @@ public class GameManager : MonoBehaviour
     }
     private void DishGrabbed()
     {
-        Debug.Log("Dish grabbed");
-        cleanDishes--;
-        cleanCups--;
+        cleanDishCount--;
+        cleanCupCount--;
     }
    
 
@@ -44,25 +45,25 @@ public class GameManager : MonoBehaviour
     }
     public void CreateArm()
         {
-            int x = Random.Range(-400,400);
+            int x = Random.Range(negX,posX);
             
             GameObject newArm = Instantiate(armObj, new Vector3(x,1250,0), Quaternion.identity);
         }
     private void CreateCleanObj(GameObject obj)
     {
-        int x = Random.Range(-400,400);
-        int y = Random.Range(-300,300);
+        int x = Random.Range(negX,posX);
+        int y = Random.Range(negY,posY);
 
         GameObject newObj = Instantiate(obj, new Vector3(x,y,0), Quaternion.identity);
     }
 
     public void CheckToRefill()
     {
-        if(cleanDishes > 0)
+        if(cleanDishCount > 0)
         {
             CreateCleanObj(cleanDish);
         }
-        if(cleanCups > 0)
+        if(cleanCupCount > 0)
         {
             CreateCleanObj(cleanCup);
         }

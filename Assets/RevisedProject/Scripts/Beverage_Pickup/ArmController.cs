@@ -11,10 +11,10 @@ public class ArmController : MonoBehaviour
 
     public bool hasObj = false;
     public GameObject hasHit;
+    
+    public bool hasCup = false;
+     private bool emptyHanded = true;
 
-    private bool emptyHanded = true;
-
-    private float timeExisted;
 
     // Update is called once per frame
     private void Start() 
@@ -57,6 +57,8 @@ public class ArmController : MonoBehaviour
                 GameManager gm = FindObjectOfType<GameManager>();
                 gm.CheckToRefill();
                 other.transform.parent = this.gameObject.transform;
+                
+            Destroy(other.gameObject.GetComponent<BoxCollider2D>());
             }
             else
             {
@@ -74,12 +76,14 @@ public class ArmController : MonoBehaviour
         {
             GetComponent<Animator>().SetTrigger("GrabCutlery");
             hasObj = true;
-            transform.tag = "FullHand";
+            hasCup = false;
+            
         }
         else if(grabbedCup == true)
         {
             GetComponent<Animator>().SetTrigger("GrabCup");
             hasObj = true;
+            hasCup = true;
         }
     }
     

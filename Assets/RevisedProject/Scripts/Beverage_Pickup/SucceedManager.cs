@@ -5,16 +5,15 @@ using UnityEngine;
 public class SucceedManager : MonoBehaviour
 { private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.GetComponent<ArmController>() != null  && other.gameObject.tag == "FullHand")
+
+        ArmController arm = other.gameObject.GetComponent<ArmController>();
+        if(arm != null  && arm.hasCup)
         {
-            DrinkDrunk();
+            SuccessEvent();
         }
-        else
-        {
-            Destroy(other.gameObject);
-        }
+        Destroy(other.gameObject);
     }
 
     public delegate void DrinkGrabbed();
-    public static event DrinkGrabbed DrinkDrunk;
+    public static event DrinkGrabbed SuccessEvent;
 }
