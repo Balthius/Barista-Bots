@@ -43,14 +43,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fddac8ff820e8f4ab48d36a92981eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cleanDishes: 7
-  cleanCups: 5
+  cleanDishCount: 0
+  cleanCupCount: 0
   strikes: 3
+  armSpawnRate: 5
+  negY: 0
+  posY: 0
+  negX: 0
+  posX: 0
   cleanDish: {fileID: 1092971779179757192, guid: 5be60db7db882f445b4ce897d79ff8b7,
     type: 3}
   cleanCup: {fileID: 9083724573829049920, guid: a6ab720d4d28b7a4baebbcd96d257d5b,
     type: 3}
   armObj: {fileID: 910635616624567532, guid: 28e7b31acfd4c634a87154aec677f6a0, type: 3}
+  scorePanel: {fileID: 0}
 --- !u!1 &7052467887564753281
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,6 +66,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5794139740199290185}
+  - component: {fileID: 1825543081}
   m_Layer: 0
   m_Name: DishPitManager
   m_TagString: Untagged
@@ -81,6 +88,25 @@ Transform:
   m_Father: {fileID: 7008275673396365275}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1825543081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7052467887564753281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8886b63d29b416a4fa890443582b8780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dirtyDish: {fileID: 8392182276926171360, guid: 04dc44e331fc7854f81f064d78b2e6ae,
+    type: 3}
+  dirtyCup: {fileID: 4455437768456582715, guid: 282bb5c8718d29a4184436727c30e8df,
+    type: 3}
+  dirtyCupSpawn: {fileID: 0}
+  dirtyDishSpawn: {fileID: 0}
+  gameManager: {fileID: 1445865980598806862}
 --- !u!1 &8876794114339391908
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,11 +147,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7008275673396365275}
     m_Modifications:
-    - target: {fileID: 5829514881034057588, guid: c56dca35cafb4ba4995ecf3ff30f1926,
-        type: 3}
-      propertyPath: m_Name
-      value: AudioManager
-      objectReference: {fileID: 0}
     - target: {fileID: 5831816700127102296, guid: c56dca35cafb4ba4995ecf3ff30f1926,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -180,6 +201,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5829514881034057588, guid: c56dca35cafb4ba4995ecf3ff30f1926,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c56dca35cafb4ba4995ecf3ff30f1926, type: 3}

@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public int cleanDishCount, cleanCupCount, strikes, armSpawnRate = 5;
 
-    [SerializeField]private int negY, posY, negX, posX;
+    [SerializeField]private int negY, posY, negX, posX;// Y 400, X 800
     [SerializeField] GameObject cleanDish, cleanCup, armObj, scorePanel;
 
     private int currentScore;
