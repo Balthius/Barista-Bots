@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Arm_Obj : MonoBehaviour {
-
-    public GameController gc;
+// Commented things out to fix error codes
+    //public GameManager gc;
     private Transform position;
     public Sprite secondArm;
     private bool goingUp;
@@ -19,10 +19,10 @@ public class Arm_Obj : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (gc.missedCustomer() == 3)
+       /*  if (gc.missedCustomer() == 3)
         {
             Destroy(this.gameObject);
-        }
+        } */
 
         if (goingUp == false)
         {
@@ -42,7 +42,7 @@ public class Arm_Obj : MonoBehaviour {
             position.Translate(new Vector2(0f, -2.67f));
             this.GetComponent<SpriteRenderer>().sprite = secondArm;
             goingUp = true;
-            gc.hitBottom();
+            //gc.hitBottom();
         }
         else if (collision.tag == "Combined")
         {
@@ -50,7 +50,7 @@ public class Arm_Obj : MonoBehaviour {
             collision.transform.parent = transform;
             collision.transform.Translate(new Vector3(0, -7f, 0));
             goingUp = true;
-            gc.placeObj = true;
+           /*  gc.placeObj = true;
             gc.placeItem("cleanPlate");
             gc.placeItem("dirtyPlate");
             gc.placeItem("cleanCup");
@@ -59,7 +59,7 @@ public class Arm_Obj : MonoBehaviour {
             if (gc.cups == 0)
             {
                 gc.noCups = true;
-            }
+            } */
         }
         else
         {

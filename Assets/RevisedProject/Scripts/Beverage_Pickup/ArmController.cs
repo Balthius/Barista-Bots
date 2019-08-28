@@ -11,9 +11,7 @@ public class ArmController : MonoBehaviour
 
     public bool hasObj = false, hasCup = false;
     public GameObject hasHit;
-    
-    public bool hasCup = false;
-     private bool emptyHanded = true;
+    private bool emptyHanded = true;
 
 
     // Update is called once per frame
@@ -84,10 +82,6 @@ public class ArmController : MonoBehaviour
             GetComponent<Animator>().SetTrigger("GrabCup");
             hasObj = true;
             hasCup = true;
-<<<<<<< HEAD
-
-=======
->>>>>>> Beverage_Pickup
         }
     }
     

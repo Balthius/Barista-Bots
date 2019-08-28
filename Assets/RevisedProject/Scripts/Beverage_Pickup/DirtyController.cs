@@ -7,11 +7,7 @@ public class DirtyController : MonoBehaviour
     Transform dishPit;
     GameObject gameManager;
     [SerializeField] private Sprite[] dishSprites;
-<<<<<<< HEAD
-    [SerializeField] GameObject gameManager;
-=======
     
->>>>>>> Beverage_Pickup
 
     int dirtyLevel;
 
@@ -20,11 +16,6 @@ public class DirtyController : MonoBehaviour
         dishPit = GameObject.FindGameObjectWithTag("DishPit").transform;
         
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
-<<<<<<< HEAD
-
-        dirtyLevel = 150;
-=======
->>>>>>> Beverage_Pickup
     }
     private void Update()
     {
@@ -44,11 +35,7 @@ public class DirtyController : MonoBehaviour
         {
             transform.position = dishPit.position;
             DishPitManager.dishActive = true;
-<<<<<<< HEAD
-            
-=======
             dirtyLevel = 100;
->>>>>>> Beverage_Pickup
         }
     }
 
@@ -66,18 +53,10 @@ public class DirtyController : MonoBehaviour
                 if(gameObject.tag == "Cup")
                 {
                     gm.cleanCupCount++;
-<<<<<<< HEAD
-                    gm.CreateCleanObj(cleanDish[0]);
-=======
->>>>>>> Beverage_Pickup
                 }
                 else if(gameObject.tag == "Plate")
                 {
                     gm.cleanDishCount++;
-<<<<<<< HEAD
-=======
-
->>>>>>> Beverage_Pickup
                 }
 
                 Debug.Log(gm.cleanDishCount + "Clean dishes and cups " + gm.cleanCupCount);

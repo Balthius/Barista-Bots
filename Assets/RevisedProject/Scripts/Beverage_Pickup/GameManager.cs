@@ -5,12 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int cleanDishCount, cleanCupCount, strikes, armSpawnRate = 5;
-<<<<<<< HEAD
-=======
-
-    [SerializeField]private int negY, posY, negX, posX;
-    [SerializeField] GameObject cleanDish, cleanCup, armObj;
->>>>>>> Beverage_Pickup
 
     [SerializeField]private int negY, posY, negX, posX;
     [SerializeField] GameObject cleanDish, cleanCup, armObj, scorePanel;
@@ -34,10 +28,6 @@ public class GameManager : MonoBehaviour
     {
         cleanDishCount--;
         cleanCupCount--;
-<<<<<<< HEAD
-        currentScore++;
-=======
->>>>>>> Beverage_Pickup
     }
     public void RemoveLife()
     {
