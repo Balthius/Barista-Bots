@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Pickup_Game
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 1
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Android
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 47
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 1
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 4fcbdb7746582764b861d164f755618c, type: 3}
+    totalSpriteSurfaceArea: 16422668
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: ab40f8702c37fd8469b5329f4c681465, type: 3}
+  - {fileID: 21300000, guid: 68f2b3a09e511bb49b7fa8bb294f1350, type: 3}
+  - {fileID: 21300000, guid: 8ff7458164f80ef4bbdc30766c21e956, type: 3}
+  - {fileID: 21300000, guid: 78f331a12c12d2648869c28ff4c4b326, type: 3}
+  - {fileID: 21300000, guid: 45d576a11de973049bc03c619271ed41, type: 3}
+  - {fileID: 21300000, guid: 98af2e1285f48144999ede977da1d2d0, type: 3}
+  - {fileID: 21300000, guid: 3572a63218aeafe42a5f785d8c87ac29, type: 3}
+  - {fileID: 21300000, guid: 72fd7352e66972a4996e83ef01c265b2, type: 3}
+  - {fileID: 21300000, guid: 71fa9a72bc7b7e9458a42775ccc01dfa, type: 3}
+  - {fileID: 21300000, guid: 5624d7d228875cc44ac96ec969a49e5d, type: 3}
+  - {fileID: 21300000, guid: 1408030350863dc4dbb98989ba36ceca, type: 3}
+  - {fileID: 21300000, guid: c1a5a92376a94ed40968141b261fb9fe, type: 3}
+  - {fileID: 21300000, guid: ec9a186398cf44d4d927d9da6d4e9996, type: 3}
+  - {fileID: 21300000, guid: 48d70624e81480a4b9e732d22310d5b1, type: 3}
+  - {fileID: 21300000, guid: f43b9444705b8df40a5603153298e102, type: 3}
+  - {fileID: 21300000, guid: cc66c7b4a0e595f418347a010a1c8926, type: 3}
+  - {fileID: 21300000, guid: e1009915b7cfeb24597b774f754b1eca, type: 3}
+  - {fileID: 21300000, guid: c2a27d5561aa8d6478a63e5052257216, type: 3}
+  - {fileID: 21300000, guid: c01932953334b824cb321a6f529c204e, type: 3}
+  - {fileID: 21300000, guid: 3a7e1df5894f84e4286a469280a7afb8, type: 3}
+  - {fileID: 21300000, guid: 7fd55736a41e65046807d25aab8d1730, type: 3}
+  - {fileID: 21300000, guid: 02f32a56604c62c498440e35fb5c44df, type: 3}
+  - {fileID: 21300000, guid: d93123a6aec69ff4493bc111b1f14b02, type: 3}
+  - {fileID: 21300000, guid: f39fa2c6254b20e48b561d0bf376e3a7, type: 3}
+  - {fileID: 21300000, guid: dad22cc6935862b42a9e512779e28054, type: 3}
+  - {fileID: 21300000, guid: d259db18e29b80c4da0ab215229f8db2, type: 3}
+  - {fileID: 21300000, guid: 1e4db638ec50dc945937a23a109f4132, type: 3}
+  - {fileID: 21300000, guid: 0063e5986102d4147968abe085d0e662, type: 3}
+  - {fileID: 21300000, guid: 9d0335a8cfdff7640ac1f5c7e0ad8fe1, type: 3}
+  - {fileID: 21300000, guid: 4bb6dd0a2579a1a409943b5dbdf5b1b5, type: 3}
+  - {fileID: 21300000, guid: f0d01d6a833a270418cf44f31491062c, type: 3}
+  - {fileID: 21300000, guid: 9320b26b88cf83c48ace20435dd61e1b, type: 3}
+  - {fileID: 21300000, guid: ab3ed4abfcdcf5f4dad7c1c0a8c9ec26, type: 3}
+  - {fileID: 21300000, guid: 6b402feb88dd212449978458c35cef17, type: 3}
+  - {fileID: 21300000, guid: f6a6cb0c1e063f5448bf0537ea8c863e, type: 3}
+  - {fileID: 21300000, guid: c4bf103cd72914c41af97ad1291aa23f, type: 3}
+  - {fileID: 21300000, guid: 81ed853cbe7e85b46919ca3efbe4184f, type: 3}
+  - {fileID: 21300000, guid: cedea94c372e4874c81e12063c829d32, type: 3}
+  - {fileID: 21300000, guid: c71d24ec3817ebc439b8de9d7ebb9eaa, type: 3}
+  - {fileID: 21300000, guid: 4a89a34df05ddf74187f4324d986c7bc, type: 3}
+  - {fileID: 21300000, guid: 1cb76d5e8c9e8b44f87e7231fd7a1fbd, type: 3}
+  - {fileID: 21300000, guid: 4570200ff1773804a923de14272bb667, type: 3}
+  - {fileID: 21300000, guid: 0b59f45faa78f2b4eb0ee79f97c764d8, type: 3}
+  - {fileID: 21300000, guid: 67e3689fb0dc0794a931f7d8a72966ec, type: 3}
+  - {fileID: 21300000, guid: 26475dbf63f421e45805b37e384be894, type: 3}
+  - {fileID: 21300000, guid: 47aa36ef43f7fc54bac433fc88de88c1, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - white_rectangle
+  - Assets_PickupCounter_GameCup
+  - PCD_Beverage_09
+  - PCD_Background_Secondary_02b
+  - PCD_Beverage_07
+  - Splash_PickupCounterDefense
+  - PCD_Cup_02
+  - Arm_01
+  - PCD_Cup_03
+  - PCD_Background_Primary_01
+  - dirtyDish2
+  - PCD_Plate_03
+  - dirtyDish3
+  - 04
+  - PCD_Plate_01
+  - PCD_Beverage_01
+  - Cafe_Background_02
+  - PCD_Background_Secondary_02a
+  - PCD_Beverage_06
+  - PCD_Beverage_02
+  - PCD_Hand_05
+  - PCP_DirtyCup_01
+  - PCD_Plate_02
+  - Cafe_Background_01
+  - 02
+  - Assets_PickupCounter_Background_01
+  - PCD_Background_Secondary_01b
+  - PCD_Beverage_08
+  - Arm_02
+  - PCD_Hand_02
+  - PCD_Hand_04
+  - PCD_Hand_03
+  - PCP_DirtyCup_04
+  - PCD_Cup_01
+  - Assets_PickupCounter_GamePlate
+  - Assets_PickupCounter_Background_02
+  - PCP_DirtyCup_02
+  - dirtyDish1
+  - PCD_Beverage_04
+  - PCD_Beverage_05
+  - PCD_Hand_01
+  - PCD_Beverage_03
+  - PCD_Background_Primary_02
+  - PCP_DirtyCup_03
+  - PCD_Background_Secondary_01a
+  - 03
+  m_Tag: Pickup_Game
+  m_IsVariant: 0

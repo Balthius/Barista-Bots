@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int cleanDishes, cleanCups, strikes, armSpawnRate = 5;
-    [SerializeField] GameObject cleanDish, cleanCup, armObj;
+    public int cleanDishCount, cleanCupCount, strikes, armSpawnRate = 5;
 
+    [SerializeField]private int negY, posY, negX, posX;
+    [SerializeField] GameObject cleanDish, cleanCup, armObj, scorePanel;
 
-    private void Update() 
-    {
-        if(strikes <= 0)
-        {
-            //game over
-        }
-
-    }
+    private int currentScore;
 
     private void OnEnable() 
     {
@@ -32,14 +26,18 @@ public class GameManager : MonoBehaviour
     }
     private void DishGrabbed()
     {
-        cleanDishes--;
-        cleanCups--;
+        cleanDishCount--;
+        cleanCupCount--;
+        currentScore++;
     }
-   
-
     public void RemoveLife()
     {
         strikes--;
+        
+        if(strikes <= 0)
+        {
+            GameOver(currentScore);
+        }
     }
     public void CreateArm()
         {
@@ -55,6 +53,19 @@ public class GameManager : MonoBehaviour
         GameObject newObj = Instantiate(obj, new Vector3(x,y,0), Quaternion.identity);
     }
      
-
+    private void GameOver(int score)
+    {
+        if(score <= 3)
+        {
+            score = 3;
+        }
+        int scoreToPass = score / 3;
+        
+        if(scoreToPass > 5)
+        {
+        scoreToPass = 5;
+        }
+        scorePanel.GetComponent<ScoreManager>().ChooseSprite(scoreToPass);
+    }
    
 }

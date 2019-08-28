@@ -10,9 +10,18 @@ public class DirtyController : MonoBehaviour
     [SerializeField] GameObject[] cleanDish;//0 Cup 1 Dish
 
     [SerializeField] private Sprite[] dishSprites;
-    [SerializeField] GameManager gameManager;
+    [SerializeField] GameObject gameManager;
 
     int dirtyLevel;
+
+    private void Start()
+    {
+        dishPit = GameObject.FindGameObjectWithTag("DishPit").transform;
+        
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+
+        dirtyLevel = 150;
+    }
     private void Update()
     {
         if (dirtyLevel < 100 && dirtyLevel > 50)
@@ -31,6 +40,7 @@ public class DirtyController : MonoBehaviour
         {
             transform.position = dishPit.position;
             DishPitManager.dishActive = true;
+            
         }
     }
 
@@ -44,14 +54,12 @@ public class DirtyController : MonoBehaviour
                 GameManager gm = gameManager.GetComponent<GameManager>();
                 if(gameObject.tag == "Cup")
                 {
-                    gm.cleanCups++;
+                    gm.cleanCupCount++;
                     gm.CreateCleanObj(cleanDish[0]);
                 }
                 else if(gameObject.tag == "Dish")
                 {
-                    gm.cleanDishes++;
-                    gm.CreateCleanObj(cleanDish[1]);
-
+                    gm.cleanDishCount++;
                 }
                     Destroy(this.gameObject);
             }

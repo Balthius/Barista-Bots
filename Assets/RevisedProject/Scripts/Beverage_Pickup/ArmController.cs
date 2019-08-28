@@ -9,7 +9,7 @@ public class ArmController : MonoBehaviour
     [SerializeField] float yMovement;
     private bool hasCollided = false;
 
-    public bool hasObj = false;
+    public bool hasObj = false, hasCup = false;
     public GameObject hasHit;
 
     // Update is called once per frame
@@ -55,6 +55,8 @@ public class ArmController : MonoBehaviour
         {
             GetComponent<Animator>().SetTrigger("GrabCup");
             hasObj = true;
+            hasCup = true;
+
         }
     }
      private void OnTriggerExit2D(Collider2D other)
