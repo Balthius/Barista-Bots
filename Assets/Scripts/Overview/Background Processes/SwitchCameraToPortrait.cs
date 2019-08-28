@@ -13,25 +13,21 @@ public class SwitchCameraToPortrait : MonoBehaviour {
         {
             transform.position = portraitMode.transform.position + cameraOffset;
             
-            this.transform.rotation = Quaternion.Euler(0, 0, 90f);
         }
         if (Input.deviceOrientation == DeviceOrientation.LandscapeLeft)
         {
             transform.position = landScapeMode.transform.position + cameraOffset;
             
-            this.transform.rotation = Quaternion.Euler(0, 0, 180f);
         }
         if (Input.deviceOrientation == DeviceOrientation.PortraitUpsideDown)
         {
             transform.position = portraitMode.transform.position + cameraOffset;
             
-            this.transform.rotation = Quaternion.Euler(0, 0, 270f);
         }
         if (Input.deviceOrientation == DeviceOrientation.LandscapeRight)
         {
             transform.position = landScapeMode.transform.position + cameraOffset;
             
-            this.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 }

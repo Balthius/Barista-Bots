@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class DirtyController : MonoBehaviour
 {
-
-    [SerializeField] Transform dishPit;
-
-    [SerializeField] GameObject[] cleanDish;//0 Cup 1 Dish
-
+    Transform dishPit;
+    GameObject gameManager;
     [SerializeField] private Sprite[] dishSprites;
+<<<<<<< HEAD
     [SerializeField] GameObject gameManager;
+=======
+    
+>>>>>>> Beverage_Pickup
 
     int dirtyLevel;
 
@@ -19,8 +20,11 @@ public class DirtyController : MonoBehaviour
         dishPit = GameObject.FindGameObjectWithTag("DishPit").transform;
         
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
+<<<<<<< HEAD
 
         dirtyLevel = 150;
+=======
+>>>>>>> Beverage_Pickup
     }
     private void Update()
     {
@@ -40,28 +44,45 @@ public class DirtyController : MonoBehaviour
         {
             transform.position = dishPit.position;
             DishPitManager.dishActive = true;
+<<<<<<< HEAD
             
+=======
+            dirtyLevel = 100;
+>>>>>>> Beverage_Pickup
         }
     }
 
     private void OnMouseDrag()
      {
+         //clean amount could be on a random range to simulate different amounts of "dirty" per dish.
         if (dirtyLevel > 0)
         {
-            dirtyLevel -= 5;
+            dirtyLevel -= 3;
             if (dirtyLevel <= 0)
             {
                 GameManager gm = gameManager.GetComponent<GameManager>();
+                Debug.Log(gm.cleanDishCount + "Clean dishes and cups before " + gm.cleanCupCount);
+                
                 if(gameObject.tag == "Cup")
                 {
                     gm.cleanCupCount++;
+<<<<<<< HEAD
                     gm.CreateCleanObj(cleanDish[0]);
+=======
+>>>>>>> Beverage_Pickup
                 }
-                else if(gameObject.tag == "Dish")
+                else if(gameObject.tag == "Plate")
                 {
                     gm.cleanDishCount++;
+<<<<<<< HEAD
+=======
+
+>>>>>>> Beverage_Pickup
                 }
-                    Destroy(this.gameObject);
+
+                Debug.Log(gm.cleanDishCount + "Clean dishes and cups " + gm.cleanCupCount);
+                DishPitManager.dishActive = false;
+                Destroy(this.gameObject);
             }
         }
     }

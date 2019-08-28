@@ -24,8 +24,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Minigames/Barista_BeverageExport.unity
     guid: aef602100fe3f8f43a7aa443b6afebbf
   - enabled: 0
+<<<<<<< HEAD
     path: 
     guid: 00000000000000000000000000000000
+=======
+    path: Assets/Scenes/Minigames/Beverage_Pickup.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+>>>>>>> Beverage_Pickup
   - enabled: 1
     path: Assets/Scenes/Options.unity
     guid: 8fdebace28818df41a6ff3718dfcf137
