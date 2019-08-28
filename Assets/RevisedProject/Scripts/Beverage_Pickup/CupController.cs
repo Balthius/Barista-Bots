@@ -9,29 +9,41 @@ public class CupController : MonoBehaviour
 
     [SerializeField] GameObject dishObj;
     
-    private bool isPickedUp = false;
     private Vector3 screenPoint;
     private Vector3 offset;
+    private bool playerTouching = false;
+    public bool combined = false;
+
+    public bool beingHeld = false;
     //CupMovement
+
+    private void Update() {
+    
+            //Debug.Log("is picked up" + isPickedUp);
+    }
     void OnMouseDown()
-    {
-        if (isPickedUp == false && Input.touchCount == 1)
+    {// && Input.touchCount == 1 removed to test
+        if (!playerTouching && !beingHeld)
         {
-            isPickedUp = true;
+            playerTouching = true;
             screenPoint = Camera.main.WorldToScreenPoint(transform.position);
             offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
         }
     }
 
     private void OnMouseUp()
-     {
-        isPickedUp = false;
+    {           
+
+        playerTouching = false;
+      
     }
 
     void OnMouseDrag()
-    {
-        if (isPickedUp == true && Input.touchCount == 1)
+    {// && Input.touchCount == 1
+        if (playerTouching == true)
         {
+
+            //Mouse doesnt count as a touchcount for testing
             Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
             Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
             transform.position = curPosition;
@@ -50,16 +62,14 @@ public class CupController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if(other.tag == "Plate" && this.tag != "Combined")
+        if(other.gameObject.GetComponent<DishController>() != null && !combined)
         {
             Destroy(other.gameObject);
             GameObject dish = Instantiate(dishObj, transform.position, Quaternion.identity);
-            transform.tag = "Combined";
             dish.transform.parent = this.gameObject.transform;
-        }
-        if(other.tag == "Arm" && gameObject.tag == "Combined")
-        {
-            transform.parent = other.transform;
+            combined = true;
+            playerTouching = false;//Backup bool check
+            this.gameObject.name = "CombinedBeverage";
         }
     }
 }

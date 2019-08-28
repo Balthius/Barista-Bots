@@ -6,37 +6,63 @@ public class ArmController : MonoBehaviour
 {
     // Start is called before the first frame update
    
-    [SerializeField] float yMovement;
+    [SerializeField] float yMovement, reverseMovement;
     private bool hasCollided = false;
 
-    public bool hasObj = false;
+    public bool hasObj = false, hasCup = false;
     public GameObject hasHit;
+    
+    public bool hasCup = false;
+     private bool emptyHanded = true;
+
 
     // Update is called once per frame
+    private void Start() 
+    {
+        reverseMovement = (yMovement * -1) * 1.3f;
+    }
     void Update()
     {
+        if(emptyHanded)
+        {
             transform.Translate(new Vector2(0,yMovement));
+        }
+        else if(!emptyHanded)
+        {
+            transform.Translate(new Vector2(0,reverseMovement));
+        }
+    
+        if(hasHit != null && hasHit.gameObject.name == "FailWall")
+        {
+            
+            emptyHanded = false;
+           // errant hands keep getting past the wall when using trigger checks
+           ObjectGrabbedCheck(false);
+        }
+
     }
 
     
-    public delegate void DrinkGrabbed();
-    public static event DrinkGrabbed DrinkDrunk;
+   
     private void OnTriggerEnter2D(Collider2D other) 
     {  
-        hasHit = other.gameObject;
+        hasHit = other.gameObject;// used to debug
          if(!hasCollided)
-        {
-            
+        { 
             hasCollided = true;
-            if(other.gameObject.tag == "Wall")
-            {
-                ObjectGrabbedCheck(false);
-            yMovement *= -1;
-            }
-                 if(other.gameObject.tag == "Combined" && !hasObj)
+            CupController otherCup = other.gameObject.GetComponent<CupController>();
+            if(otherCup != null && otherCup.combined && !hasObj)
             {
                 ObjectGrabbedCheck(true);
-            yMovement *= -1;
+                GameManager gm = FindObjectOfType<GameManager>();
+                gm.CheckToRefill();
+                other.transform.parent = this.gameObject.transform;
+                
+            Destroy(other.gameObject.GetComponent<BoxCollider2D>());
+            }
+            else
+            {
+               emptyHanded = true; 
             }
              
         }
@@ -45,25 +71,24 @@ public class ArmController : MonoBehaviour
     public void ObjectGrabbedCheck(bool grabbedCup)
     {  
         
+        emptyHanded = false;
         if(grabbedCup == false)
         {
             GetComponent<Animator>().SetTrigger("GrabCutlery");
             hasObj = true;
-            transform.tag = "FullHand";
+            hasCup = false;
+            
         }
         else if(grabbedCup == true)
         {
             GetComponent<Animator>().SetTrigger("GrabCup");
             hasObj = true;
+            hasCup = true;
+<<<<<<< HEAD
+
+=======
+>>>>>>> Beverage_Pickup
         }
     }
-     private void OnTriggerExit2D(Collider2D other)
-    {
-        if(other.gameObject.tag == "Destroyer" && hasObj)
-        {
-            DrinkDrunk();
-            Destroy(this.gameObject);
-        }
-        
-    }
+    
 }

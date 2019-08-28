@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TestGitScript : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         TestFunc();
@@ -20,7 +19,6 @@ public class TestGitScript : MonoBehaviour
     {
         print("Testing out Git Branches");
         print("Testing out Git Branches");
-        print("Testing out Git Branches");
+        print("Testing out in a different way");
     }
-    
 }
