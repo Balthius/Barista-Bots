@@ -40,7 +40,7 @@ public class CupController : MonoBehaviour
 
     void OnMouseDrag()
     {// && Input.touchCount == 1
-        if (playerTouching == true)
+        if (playerTouching == true && !beingHeld)
         {
 
             //Mouse doesnt count as a touchcount for testing

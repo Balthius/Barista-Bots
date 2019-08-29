@@ -5,6 +5,10 @@ using UnityEngine;
 public class BubbleController : MonoBehaviour
 {
     [SerializeField] int scoreVal;
+
+    
+    [SerializeField] private Color hitColor;
+
     private Vector3 targetLocation;
     void Update()
     {
@@ -23,7 +27,7 @@ public class BubbleController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        FindObjectOfType<BattleGameManager>().AdjustTime(scoreVal);
+        FindObjectOfType<BattleGameManager>().AdjustTime(scoreVal, hitColor);
         Destroy(this.gameObject);
     }
  

@@ -96,7 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21ca4be7f4fff847bbdc3857a4fb256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreVal: -1
+  scoreVal: 0
+  hitColor: {r: 0.4811321, g: 0.4516287, b: 0.4516287, a: 0}
 --- !u!50 &8263892754554130519
 Rigidbody2D:
   serializedVersion: 4

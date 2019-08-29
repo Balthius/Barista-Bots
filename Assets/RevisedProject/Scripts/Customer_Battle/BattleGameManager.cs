@@ -46,8 +46,11 @@ public class BattleGameManager : MonoBehaviour
         }
     }
 
-    public void AdjustTime(int time)
+    public void AdjustTime(int time, Color hitColor)
     {
+        scoreText.GetComponent<TextColorController>().SetColor(hitColor);
+        
+        timeText.GetComponent<TextColorController>().SetColor(hitColor);
         currentTime += time;
         score += (activeManagers/3) * time;
         if(time <= 0)

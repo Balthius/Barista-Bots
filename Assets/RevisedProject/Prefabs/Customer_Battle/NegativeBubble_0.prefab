@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreVal: -2
+  hitColor: {r: 0.990566, g: 0.31305623, b: 0.31305623, a: 0}
 --- !u!50 &191069469059973681
 Rigidbody2D:
   serializedVersion: 4

@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 373692278}
   - component: {fileID: 373692280}
   - component: {fileID: 373692279}
+  - component: {fileID: 373692281}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -283,6 +284,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373692277}
   m_CullTransparentMesh: 0
+--- !u!114 &373692281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373692277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45075818edef3484ca4a8c195cf5991e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &405429992
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,6 +307,7 @@ GameObject:
   - component: {fileID: 405429993}
   - component: {fileID: 405429995}
   - component: {fileID: 405429994}
+  - component: {fileID: 405429996}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -440,6 +454,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405429992}
   m_CullTransparentMesh: 0
+--- !u!114 &405429996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405429992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45075818edef3484ca4a8c195cf5991e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &700154118 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3198191599785009428, guid: c5c192b271bec844a9940101421128cd,
@@ -574,14 +600,14 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
-    - target: {fileID: 3199703526996475606, guid: c5c192b271bec844a9940101421128cd,
+    - target: {fileID: 3199703527941007341, guid: c5c192b271bec844a9940101421128cd,
         type: 3}
-      propertyPath: loadingScreen
+      propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 62225201}
-    - target: {fileID: 3199703527127912305, guid: c5c192b271bec844a9940101421128cd,
+      objectReference: {fileID: 1437422667}
+    - target: {fileID: 3199703527941007341, guid: c5c192b271bec844a9940101421128cd,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_RenderMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3199703527127912306, guid: c5c192b271bec844a9940101421128cd,
@@ -594,6 +620,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 107
       objectReference: {fileID: 0}
+    - target: {fileID: 3199703527127912305, guid: c5c192b271bec844a9940101421128cd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3199703526996475606, guid: c5c192b271bec844a9940101421128cd,
+        type: 3}
+      propertyPath: loadingScreen
+      value: 
+      objectReference: {fileID: 62225201}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5c192b271bec844a9940101421128cd, type: 3}
 --- !u!1 &978849033
@@ -763,6 +799,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 734860037}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1437422667 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2231970738813602653, guid: 1de795505e3c877498328a4903f5dd57,
+    type: 3}
+  m_PrefabInstance: {fileID: 1182611786}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1956120236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -861,6 +903,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 978849034}
     m_Modifications:
+    - target: {fileID: 3401449155075700166, guid: 67092c42c50fced44be63a33a13f51e4,
+        type: 3}
+      propertyPath: m_Name
+      value: BubbleManager
+      objectReference: {fileID: 0}
     - target: {fileID: 3401449155075700167, guid: 67092c42c50fced44be63a33a13f51e4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -915,11 +962,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3401449155075700166, guid: 67092c42c50fced44be63a33a13f51e4,
-        type: 3}
-      propertyPath: m_Name
-      value: BubbleManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67092c42c50fced44be63a33a13f51e4, type: 3}

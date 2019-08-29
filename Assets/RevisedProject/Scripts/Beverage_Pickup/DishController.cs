@@ -28,7 +28,8 @@ public class DishController : MonoBehaviour
 
     void OnMouseDrag()
     {
-        if (isPickedUp == true && Input.touchCount == 1)
+        // && Input.touchCount == 1
+        if (isPickedUp == true)
         {
             Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
             Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
