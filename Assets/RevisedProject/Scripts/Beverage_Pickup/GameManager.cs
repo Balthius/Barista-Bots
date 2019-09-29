@@ -4,23 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int cleanDishes, cleanCups, strikes, armSpawnRate = 5;
-    [SerializeField] GameObject cleanDish, cleanCup, armObj;
+    public int cleanDishCount, cleanCupCount, strikes, armSpawnRate = 5;
 
+    [SerializeField]private int negY, posY, negX, posX;// Y 400, X 800
+    [SerializeField] GameObject cleanDish, cleanCup, armObj, scorePanel;
 
-    private void Update() 
-    {
-        if(strikes <= 0)
-        {
-            //game over
-        }
-
-    }
+    private int currentScore;
 
     private void OnEnable() 
     {
         StartCoroutine(SpawnArms());
-        ArmController.DrinkDrunk += DishGrabbed;
+        SucceedManager.SuccessEvent += DishGrabbed;
     }
 
 
@@ -32,29 +26,57 @@ public class GameManager : MonoBehaviour
     }
     private void DishGrabbed()
     {
-        cleanDishes--;
-        cleanCups--;
+        cleanDishCount--;
+        cleanCupCount--;
     }
-   
-
     public void RemoveLife()
     {
         strikes--;
+        
+        if(strikes <= 0)
+        {
+            GameOver(currentScore);
+        }
     }
     public void CreateArm()
         {
-            int x = Random.Range(-400,400);
+            int x = Random.Range(negX,posX);
             
-            GameObject newArm = Instantiate(armObj, new Vector3(x,1100,0), Quaternion.identity);
+            GameObject newArm = Instantiate(armObj, new Vector3(x,1250,0), Quaternion.identity);
         }
-    public void CreateCleanObj(GameObject obj)
+    private void CreateCleanObj(GameObject obj)
     {
-        int x = Random.Range(-400,400);
-        int y = Random.Range(-300,300);
+        int x = Random.Range(negX,posX);
+        int y = Random.Range(negY,posY);
 
         GameObject newObj = Instantiate(obj, new Vector3(x,y,0), Quaternion.identity);
     }
-     
 
+    public void CheckToRefill()
+    {
+        if(cleanDishCount > 0)
+        {
+            CreateCleanObj(cleanDish);
+        }
+        if(cleanCupCount > 0)
+        {
+            CreateCleanObj(cleanCup);
+        }
+    }
+     
+    private void GameOver(int score)
+    {
+        if(score <= 3)
+        {
+            score = 3;
+        }
+        int scoreToPass = score / 3;
+        
+        if(scoreToPass > 5)
+        {
+        scoreToPass = 5;
+        }
+        scorePanel.GetComponent<ScoreManager>().ChooseSprite(scoreToPass);
+    }
    
 }

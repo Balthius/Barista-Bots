@@ -6,33 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Selection.unity
+    guid: 28d2124397cb04f4c8de57c3a835c2ed
+  - enabled: 1
     path: Assets/Scenes/BootUp_Screen.unity
     guid: f54bc842f06322e4ab6563c6ede72d49
   - enabled: 1
-    path: Assets/Scenes/Intro.unity
-    guid: 3175ed407f9d7fa43826c1a962d3dc7a
-  - enabled: 1
     path: Assets/Scenes/Cafe.unity
     guid: ae17583808c52de44801ee0f30822c41
-  - enabled: 0
-    path: Assets/Scenes/Minigames/Customer_Service.unity
-    guid: 659ebe4c072fd6e42827c49aa7ad61bb
-  - enabled: 1
-    path: Assets/Scenes/Minigames/Barista_Beverage.unity
-    guid: 8b84180e68c97764786e5c0f891cc3e4
-  - enabled: 1
-    path: Assets/Scenes/Minigames/Barista_BeverageExport.unity
-    guid: aef602100fe3f8f43a7aa443b6afebbf
-  - enabled: 1
-    path: Assets/Scenes/Minigames/Beverage_Pickup.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/Scenes/Options.unity
-    guid: 8fdebace28818df41a6ff3718dfcf137
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 3b33cb88e29a80b4392769c1ade10627
   - enabled: 1
-    path: Assets/Scenes/Minigames/RPS_Service_Battle.unity
-    guid: 1300dc08499bbe84db163325ef9d1739
+    path: Assets/Scenes/Options.unity
+    guid: 8fdebace28818df41a6ff3718dfcf137
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 3175ed407f9d7fa43826c1a962d3dc7a
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Barista_Beverage.unity
+    guid: 8b84180e68c97764786e5c0f891cc3e4
+  - enabled: 1
+    path: Assets/RevisedProject/Scenes/Beverage_Pickup_Revised.unity
+    guid: b36315fd2294f5b4696c0cd8edf6b709
+  - enabled: 1
+    path: Assets/RevisedProject/Scenes/Customer_Battle_Revised.unity
+    guid: 14050c3bb0d55394a9866dcddb689ba0
   m_configObjects: {}

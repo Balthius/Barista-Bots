@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class DirtyController : MonoBehaviour
 {
-
-    [SerializeField] Transform dishPit;
-
-    [SerializeField] GameObject[] cleanDish;//0 Cup 1 Dish
-
+    Transform dishPit;
+    GameObject gameManager;
     [SerializeField] private Sprite[] dishSprites;
-    [SerializeField] GameManager gameManager;
+    
 
     int dirtyLevel;
+
+    private void Start()
+    {
+        dishPit = GameObject.FindGameObjectWithTag("DishPit").transform;
+        
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+    }
     private void Update()
     {
         if (dirtyLevel < 100 && dirtyLevel > 50)
@@ -31,29 +35,33 @@ public class DirtyController : MonoBehaviour
         {
             transform.position = dishPit.position;
             DishPitManager.dishActive = true;
+            dirtyLevel = 100;
         }
     }
 
     private void OnMouseDrag()
      {
+         //clean amount could be on a random range to simulate different amounts of "dirty" per dish.
         if (dirtyLevel > 0)
         {
-            dirtyLevel -= 5;
+            dirtyLevel -= 3;
             if (dirtyLevel <= 0)
             {
                 GameManager gm = gameManager.GetComponent<GameManager>();
+                Debug.Log(gm.cleanDishCount + "Clean dishes and cups before " + gm.cleanCupCount);
+                
                 if(gameObject.tag == "Cup")
                 {
-                    gm.cleanCups++;
-                    gm.CreateCleanObj(cleanDish[0]);
+                    gm.cleanCupCount++;
                 }
-                else if(gameObject.tag == "Dish")
+                else if(gameObject.tag == "Plate")
                 {
-                    gm.cleanDishes++;
-                    gm.CreateCleanObj(cleanDish[1]);
-
+                    gm.cleanDishCount++;
                 }
-                    Destroy(this.gameObject);
+
+                Debug.Log(gm.cleanDishCount + "Clean dishes and cups " + gm.cleanCupCount);
+                DishPitManager.dishActive = false;
+                Destroy(this.gameObject);
             }
         }
     }

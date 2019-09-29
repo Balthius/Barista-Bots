@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CafeGameManager: MonoBehaviour {
-
+public class CafeGameManager: MonoBehaviour
+{
+    public EventSubscription subscription;
     
     private Vector3 screenPoint;
     private Vector3 offset;
@@ -13,6 +14,11 @@ public class CafeGameManager: MonoBehaviour {
     public GameObject loadingScreen;
     public static bool canMove;
     private bool notPortrait = true;
+
+    void Awake ()
+    {
+        
+    }
 
     //[SerializeField] private AudioClip bgmClip;
     // Use this for initialization
@@ -52,16 +58,16 @@ public class CafeGameManager: MonoBehaviour {
         }
     }
 
-    private void OnMouseDown()
+    public void OnPress()
     {
         if (canMove)
         {
             screenPoint = Camera.main.WorldToScreenPoint(world.transform.position);
             offset = world.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
         }
-        
     }
-    private void OnMouseDrag()
+
+    public void OnDrag()
     {
         if (canMove)
         {
@@ -71,6 +77,5 @@ public class CafeGameManager: MonoBehaviour {
             //world.transform.position = new Vector3(Mathf.Clamp(curPosition.x, -44.5f, -19.6f), Mathf.Clamp(curPosition.y, -15.5f, -40.4f), curPosition.z);
             //transform.position = curPosition;
         }
-
     }
 }
