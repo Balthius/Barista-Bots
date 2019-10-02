@@ -48,6 +48,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -72,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: d4cfc5e64fe70954980f0e46bab2561e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 955a5da3d3fbd3843a02a534145eeae5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.3, y: 3.13}
+  m_Size: {x: 330, y: 313}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -96,14 +97,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cupSprites:
-  - {fileID: 21300000, guid: d4cfc5e64fe70954980f0e46bab2561e, type: 3}
-  - {fileID: 21300000, guid: c856dc691b3f17a41a2983e61f935ca6, type: 3}
-  - {fileID: 21300000, guid: 724d8828e23c605489027af2219daa37, type: 3}
-  - {fileID: 21300000, guid: 2fd18a6ee16eb01458b74172aa67b3d9, type: 3}
-  - {fileID: 21300000, guid: 11d909f8478ae024ea9bb9372e90254a, type: 3}
-  - {fileID: 21300000, guid: 01b534f8c49fc85478252cfea351a3bf, type: 3}
+  - {fileID: 21300000, guid: 955a5da3d3fbd3843a02a534145eeae5, type: 3}
+  - {fileID: 21300000, guid: 29819c91afcd3fe4e92dbaf643e47371, type: 3}
+  - {fileID: 21300000, guid: a9bcc3f5eba78514581f49e494a3d96f, type: 3}
+  - {fileID: 21300000, guid: c4e95876b8c3e1245bd82479d3d6a6c2, type: 3}
+  - {fileID: 21300000, guid: 04e3164eb5a2eed46aaf26156504b8ec, type: 3}
+  - {fileID: 21300000, guid: 89c4bd36bcf2b94429c4d4ba5894f9a7, type: 3}
   dishObj: {fileID: 1092971779179757192, guid: 40921b4d238110144bbd20b8c7a9c244, type: 3}
   combined: 0
+  beingHeld: 0
 --- !u!50 &912976012
 Rigidbody2D:
   serializedVersion: 4
@@ -143,7 +145,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 330, y: 313}
-    newSize: {x: 3.3, y: 3.13}
+    newSize: {x: 330, y: 313}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
