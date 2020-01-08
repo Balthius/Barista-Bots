@@ -39,3 +39,5 @@ sysinfo.txt
 
 Assets/Sprites/*
 Assets/RevisedProject/Sprites/*
+Logs/Packages-Update.log
+*.log
