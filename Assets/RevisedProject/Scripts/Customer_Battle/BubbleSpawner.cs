@@ -22,7 +22,7 @@ public class BubbleSpawner : MonoBehaviour
     {
         GameObject bubble = Instantiate(ChooseBubble(), ChooseLocation(), Quaternion.identity);
         bubble.GetComponent<BubbleController>().SetTargetLocation(ChooseLocation());
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(1f);
         StartCoroutine(SpawnBubble());
 
     }
