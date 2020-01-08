@@ -23,14 +23,14 @@ public class Fade : MonoBehaviour {
             tmpColor = spriteColor.color;
             tmpColor.a += 0.01f;
             spriteColor.color = tmpColor;
-            Debug.Log(spriteColor.color.a);
+            // Debug.Log(spriteColor.color.a);
         }
         else if(spriteColor.color.a > 0)
         {
             tmpColor = spriteColor.color;
             tmpColor.a -= 0.01f;
             spriteColor.color = tmpColor;
-            Debug.Log(spriteColor.color.a);
+            // Debug.Log(spriteColor.color.a);
         }
       
         

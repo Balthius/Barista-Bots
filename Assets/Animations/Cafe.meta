@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/RevisedProject/Sprites.meta
 guid: fd8f17ab00807e546914aadbafe70c4f
+=======
+guid: cc386c7c89e496e498de737d87f000c2
+>>>>>>> Cafe:Assets/Animations/Cafe.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

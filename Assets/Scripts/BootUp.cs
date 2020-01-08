@@ -20,7 +20,7 @@ public class BootUp : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (Input.deviceOrientation == DeviceOrientation.LandscapeRight && notLandscape)
+        if (notLandscape && (Input.deviceOrientation == DeviceOrientation.LandscapeRight))
         {
             notLandscape = false;
             sprRenderer.enabled = true;
