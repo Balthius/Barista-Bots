@@ -14,7 +14,52 @@ public class CafeInputDetection : MonoBehaviour
 
     void Update()
     {
-        if (Input.touchCount == 1)
+        if (Input.GetMouseButtonDown(0)) {
+            tapDuration = Time.time;
+            if (currentBotDisplaying == null)
+            {
+                manager.OnPress();
+            }
+        }
+        else if (Input.GetMouseButton(0)) {
+            if (currentBotDisplaying == null)
+            {
+                 manager.OnDrag();
+            }
+        }
+        else if (Input.GetMouseButtonUp(0)) {
+            if (Time.time - tapDuration < 0.5f)
+            {
+                Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
+
+                string name = hit.transform.name;
+
+                if (name != "GameManager")
+                {
+                    if (name == "Shae_Collider" || name == "Pia_Collider" || name == "CeCe_Collider")
+                    {
+                        if (currentBotDisplaying == null)
+                        {
+                            hit.transform.GetComponentInParent<Main_Cafe_Bot>().OnTap();
+                        }
+                    }
+                    else {
+                        if (currentBotDisplaying == null || currentBotDisplaying == name)
+                        {
+                            CafeSpot spot = hit.transform.GetComponentInParent<CafeSpot>();
+                            if (spot != null)
+                            {
+                                spot.OnTap();
+                            }
+
+                            currentBotDisplaying = !spot.data.isEmpty && currentBotDisplaying == null ? name : null;
+                        }
+                    }
+                }
+            }
+        }
+        else if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
 
