@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CafeSpot : MonoBehaviour
@@ -13,6 +11,8 @@ public class CafeSpot : MonoBehaviour
     public float maxFriendship;
     
     // only used for debugging
+    public bool useMinutes = false;
+    public bool logging = false;
     public bool debug = false;
     public bool isEmpty;
     public bool isMessy;
@@ -61,7 +61,7 @@ public class CafeSpot : MonoBehaviour
     {
         if (debug)
         {
-            Debug.LogError(id + " in debug mode");
+            Debug.Log(id + " in debug mode");
             data = new CafeSpotData();
             data.isEmpty = isEmpty;
             data.isMessy = isMessy;
@@ -71,40 +71,41 @@ public class CafeSpot : MonoBehaviour
         }
 
         // instead of doing this on per spot basis, consolidate in one place
-        string jsonString = PlayerPrefs.GetString(id, "");
+        var jsonString = PlayerPrefs.GetString(id, "");
 
-        // if (debug) { Debug.LogError(id + " OnInitialize --> " + jsonString); }
+        if (logging) { Debug.Log(id + " OnInitialize --> " + jsonString); }
 
         data = jsonString.Length != 0
             ? JsonUtility.FromJson<CafeSpotData>(jsonString)
             : new CafeSpotData();
 
         DateTime lastSaved = new DateTime(data.timestamp);
-        // double deltaTime = DateTime.UtcNow.Subtract(lastSaved).TotalHours;
-        double deltaTime = DateTime.UtcNow.Subtract(lastSaved).TotalMinutes;
-        double refreshCycles = Math.Floor(deltaTime);
+        var now = DateTime.UtcNow;
+        data.timestamp = new DateTime(now.Year, now.Month, now.Day, now.Hour, useMinutes ? now.Minute : 0, 0).Ticks;
+        var deltaTime = useMinutes
+            ? now.Subtract(lastSaved).TotalMinutes
+            : now.Subtract(lastSaved).TotalHours;
+        var refreshCycles = Math.Floor(deltaTime);
 
-        // if (debug) { Debug.LogError(DateTime.UtcNow + " - " + lastSaved + " = " + refreshCycles); }
+        if (logging) { Debug.Log(id + " " + DateTime.UtcNow + " - " + lastSaved + " = " + refreshCycles); }
 
-        if (refreshCycles > 0 && !data.isEmpty)
-        {
-            bool shouldBeEmpty = ShouldBeEmpty();
-
-            data.isEmpty = shouldBeEmpty;
-            data.isMessy = shouldBeEmpty;   // bot left, leave a mess
-
-            --refreshCycles;
-
-            // if (debug) { Debug.LogError(id + " cycle 1 --> " + shouldBeEmpty); }
-        }
-
+        double cyclesPassed = 1;
         while (refreshCycles > 0 && !data.isMessy)
         {
-            data.isEmpty = ShouldBeEmpty();
-
-            --refreshCycles;
+            var botLeft = DidBotLeave();
             
-            // if (debug) { Debug.LogError(id + " cycles --> " + data.isEmpty); }
+            if (logging) {
+                var nextCycle = useMinutes ? lastSaved.AddMinutes(cyclesPassed) : lastSaved.AddHours(cyclesPassed);
+                ++cyclesPassed;
+                var botAction = botLeft
+                    ? string.Format("{0}", (data.isEmpty == botLeft) ? "no show" : "left a tip")
+                    : string.Format("{0}", (data.isEmpty == botLeft ? "stayed" : "arrived"));
+                Debug.Log(string.Format("{0} [{1:d2}:{2:d2}] {3}", id, nextCycle.Hour, nextCycle.Minute, botAction));
+            }
+
+            data.isEmpty = botLeft;
+            data.isMessy = botLeft;
+            --refreshCycles;
         }
 
         UpdateState();
@@ -124,7 +125,7 @@ public class CafeSpot : MonoBehaviour
         return (int) now.Subtract(lastHour).TotalHours;
     }
 
-    bool ShouldBeEmpty ()
+    bool DidBotLeave ()
     {
         float baristaBoost = 0; // figure how this works
         float friendshipBoost = data.friendship == maxFriendship ? FRIENDSHIP_BOOST : 0;
@@ -150,14 +151,10 @@ public class CafeSpot : MonoBehaviour
             return;
         }
 
-        // instead of doing this on per spot basis, consolidate in one place
-        data.timestamp = DateTime.UtcNow.Ticks;
-
         string jsonString = JsonUtility.ToJson(data);
-
         PlayerPrefs.SetString(id, jsonString);
 
-        // if (debug) { Debug.LogError(id + " OnDestroy --> " + jsonString); }
+        if (logging) { Debug.Log(id + " OnDestroy --> " + jsonString); }
     }
 
     public void OnTap()
