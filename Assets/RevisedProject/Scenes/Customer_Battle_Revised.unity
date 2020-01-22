@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -182,8 +183,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -352,8 +351,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -485,6 +482,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3198191599785009428, guid: c5c192b271bec844a9940101421128cd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3199703527941007312, guid: c5c192b271bec844a9940101421128cd,
         type: 3}
       propertyPath: m_Name
@@ -754,6 +756,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1246368270}
   - component: {fileID: 1246368271}
+  - component: {fileID: 1246368272}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -792,7 +795,19 @@ MonoBehaviour:
   bubbleManager: {fileID: 3401449155075700166, guid: 67092c42c50fced44be63a33a13f51e4,
     type: 3}
   scorePanel: {fileID: 700154118}
-  startTime: 60
+  startTime: 30
+--- !u!114 &1246368272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246368269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d2e1b7a40f7fd4d969e3ca502c0f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1299778968 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3199703527941007340, guid: c5c192b271bec844a9940101421128cd,
@@ -903,11 +918,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 978849034}
     m_Modifications:
-    - target: {fileID: 3401449155075700166, guid: 67092c42c50fced44be63a33a13f51e4,
-        type: 3}
-      propertyPath: m_Name
-      value: BubbleManager
-      objectReference: {fileID: 0}
     - target: {fileID: 3401449155075700167, guid: 67092c42c50fced44be63a33a13f51e4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -963,6 +973,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3401449155075700166, guid: 67092c42c50fced44be63a33a13f51e4,
+        type: 3}
+      propertyPath: m_Name
+      value: BubbleManager
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67092c42c50fced44be63a33a13f51e4, type: 3}
 --- !u!4 &4065754501623125010
@@ -1010,6 +1025,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1042,7 +1058,7 @@ SpriteRenderer:
   m_Size: {x: 1919.9999, y: 1080}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!212 &5991254133044643925
@@ -1059,6 +1075,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1091,7 +1108,7 @@ SpriteRenderer:
   m_Size: {x: 1919.9999, y: 1080}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &6320376875828366008

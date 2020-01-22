@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(SpawnArms());
         SucceedManager.SuccessEvent += DishGrabbed;
+        SucceedManager.FailEvent += RemoveLife;
     }
 
 
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         cleanDishCount--;
         cleanCupCount--;
+        currentScore++;
     }
     public void RemoveLife()
     {
@@ -65,7 +67,7 @@ public class GameManager : MonoBehaviour
     }
      
     private void GameOver(int score)
-    {
+    { scorePanel.SetActive(true);
         if(score <= 3)
         {
             score = 3;
@@ -76,6 +78,9 @@ public class GameManager : MonoBehaviour
         {
         scoreToPass = 5;
         }
+
+        this.GetComponent<PushScore>().CommitScore(score);
+       
         scorePanel.GetComponent<ScoreManager>().ChooseSprite(scoreToPass);
     }
    

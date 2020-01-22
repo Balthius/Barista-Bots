@@ -8,6 +8,7 @@ public class BattleGameManager : MonoBehaviour
     public TMP_Text scoreText, timeText;
     public GameObject bubbleManager, scorePanel;
 
+    private bool gameEnded = false;
     static int score = 0;
     public int startTime;
     private float currentTime;
@@ -23,12 +24,14 @@ public class BattleGameManager : MonoBehaviour
 
     private void Update()
     {
+        score = Mathf.Clamp(score, 0, 100);
         currentTime -= Time.deltaTime;
         scoreText.text = score.ToString();
         timeText.text = currentTime.ToString("0.00");
 
-        if(currentTime <= 0)
+        if(currentTime <= 0 && !gameEnded)
         {
+            gameEnded = true;
             GameOver();
         }
     }
@@ -52,7 +55,7 @@ public class BattleGameManager : MonoBehaviour
         
         timeText.GetComponent<TextColorController>().SetColor(hitColor);
         currentTime += time;
-        score += (activeManagers/3) * time;
+        score += Mathf.Clamp((activeManagers / 3), 1, 10);
         if(time <= 0)
         {
         StartCoroutine(UpDifficulty());
@@ -60,7 +63,8 @@ public class BattleGameManager : MonoBehaviour
     }
     private void GameOver()
     {
-        int finalscore = score/40;
+        scorePanel.SetActive(true);
+        int finalscore = score/20;
 
         if(finalscore <= 0)
         {
@@ -71,6 +75,7 @@ public class BattleGameManager : MonoBehaviour
         {
         finalscore = 5;
         }
+        this.GetComponent<PushScore>().CommitScore(score);
         scorePanel.GetComponent<ScoreManager>().ChooseSprite(finalscore);
     }
 }
