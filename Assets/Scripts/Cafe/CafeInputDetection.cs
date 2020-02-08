@@ -50,7 +50,14 @@ public class CafeInputDetection : MonoBehaviour
                             CafeSpot spot = hit.transform.GetComponentInParent<CafeSpot>();
                             if (spot != null)
                             {
-                                spot.OnTap();
+                                if (spot.data.isMessy) {
+                                    spot.OnTap();
+                                } else if (!spot.data.isEmpty) {
+                                    CafeBot bot = hit.transform.GetComponent<CafeBot>();
+                                    if (bot != null) {
+                                        bot.OnTap();
+                                    }
+                                }
                             }
 
                             currentBotDisplaying = !spot.data.isEmpty && currentBotDisplaying == null ? name : null;
@@ -95,7 +102,14 @@ public class CafeInputDetection : MonoBehaviour
                                 CafeSpot spot = hit.transform.GetComponentInParent<CafeSpot>();
                                 if (spot != null)
                                 {
-                                    spot.OnTap();
+                                    if (spot.data.isMessy) {
+                                        spot.OnTap();
+                                    } else if (!spot.data.isEmpty) {
+                                        CafeBot bot = hit.transform.GetComponent<CafeBot>();
+                                        if (bot != null) {
+                                            bot.OnTap();
+                                        }
+                                    }
                                 }
 
                                 currentBotDisplaying = !spot.data.isEmpty && currentBotDisplaying == null ? name : null;

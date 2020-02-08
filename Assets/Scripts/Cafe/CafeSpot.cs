@@ -40,7 +40,6 @@ public class CafeSpot : MonoBehaviour
         subscriber = this.GetComponent<EventSubscriber>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         bot = this.transform.GetChild(0);
-        OnInitialize();
     }
 
     void OnEnable ()
@@ -57,10 +56,9 @@ public class CafeSpot : MonoBehaviour
     {
     }
 
-    void OnInitialize ()
+    public void Initialize ()
     {
-        if (debug)
-        {
+        if (debug) {
             Debug.Log(id + " in debug mode");
             data = new CafeSpotData();
             data.isEmpty = isEmpty;
@@ -106,6 +104,27 @@ public class CafeSpot : MonoBehaviour
             data.isEmpty = botLeft;
             data.isMessy = botLeft;
             --refreshCycles;
+        }
+
+        UpdateState();
+    }
+
+    public void UpdateStateFromMiniGame (int score)
+    {
+        if (!data.isEmpty || data.isMessy) {
+            return;
+        }
+
+        // bots can only arrive after finishing a minigame, not leave
+        while (score > 0)
+        {
+            var botLeft = DidBotLeave();
+            if (!botLeft) {
+                data.isEmpty = botLeft;
+                if (logging) { Debug.Log(string.Format("{0} arrived", id)); }
+                break;
+            }
+            --score;
         }
 
         UpdateState();

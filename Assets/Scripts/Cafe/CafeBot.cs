@@ -45,4 +45,8 @@ public class CafeBot : MonoBehaviour {
             clicked = false;
         }
     }
+
+    public void OnTap() {
+        clicked = true;
+    }
 }
