@@ -17,6 +17,7 @@ public class ArmController : MonoBehaviour
     // Update is called once per frame
     private void Start() 
     {
+
         reverseMovement = (yMovement * -1) * 1.3f;
     }
     void Update()
@@ -67,15 +68,16 @@ public class ArmController : MonoBehaviour
     }
 
     public void ObjectGrabbedCheck(bool grabbedCup)
-    {  
-        
+    {
+        Debug.Log("Grabbed something" + emptyHanded);
         emptyHanded = false;
         if(grabbedCup == false)
         {
             GetComponent<Animator>().SetTrigger("GrabCutlery");
             hasObj = true;
             hasCup = false;
-            
+         
+
         }
         else if(grabbedCup == true)
         {

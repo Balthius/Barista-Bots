@@ -9,8 +9,8 @@ public class TextColorController : MonoBehaviour
     TextMeshPro currentText;
     public void SetColor(Color startColor)
     {
-        currentText = GetComponent<TextMeshPro>();
-        StartCoroutine(ColorLerp(startColor));
+        //currentText = GetComponent<TextMeshPro>();
+        //StartCoroutine(ColorLerp(startColor));
     }
     private IEnumerator ColorLerp(Color start)
     {

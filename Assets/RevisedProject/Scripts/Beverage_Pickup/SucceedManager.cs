@@ -10,10 +10,17 @@ public class SucceedManager : MonoBehaviour
         if(arm != null  && arm.hasCup)
         {
             SuccessEvent();
+            Debug.Log("Succeeded");
+        }
+        if (arm != null && !arm.hasCup)
+        {
+            FailEvent();
+            Debug.Log("Failed");
         }
         Destroy(other.gameObject);
     }
 
     public delegate void DrinkGrabbed();
     public static event DrinkGrabbed SuccessEvent;
+    public static event DrinkGrabbed FailEvent;
 }
