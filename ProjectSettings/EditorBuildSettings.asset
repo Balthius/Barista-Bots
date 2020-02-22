@@ -24,12 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro.unity
     guid: 3175ed407f9d7fa43826c1a962d3dc7a
   - enabled: 1
-    path: Assets/Scenes/Minigames/Barista_Beverage.unity
-    guid: 8b84180e68c97764786e5c0f891cc3e4
-  - enabled: 1
     path: Assets/RevisedProject/Scenes/Beverage_Pickup_Revised.unity
     guid: b36315fd2294f5b4696c0cd8edf6b709
   - enabled: 1
     path: Assets/RevisedProject/Scenes/Customer_Battle_Revised.unity
     guid: 14050c3bb0d55394a9866dcddb689ba0
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Barista_BeverageExport.unity
+    guid: aef602100fe3f8f43a7aa443b6afebbf
   m_configObjects: {}
