@@ -8,12 +8,11 @@ public class CafeBot : MonoBehaviour {
     public GameObject world;
     public bool clicked;
     private SpriteRenderer[] sprites;
-    private BoxCollider2D[] colliders;
+    
 	// Use this for initialization
 	void Start () {
         clicked = false;
         sprites = this.GetComponentsInChildren<SpriteRenderer>();
-        colliders = this.GetComponentsInChildren<BoxCollider2D>();
     }
 	
 	// Update is called once per frame
@@ -26,15 +25,12 @@ public class CafeBot : MonoBehaviour {
         }
         else if (world.transform.position == screenLoc && clicked)
         {
-            
             if (sprites[0].enabled == false)
             {
                 Fade.dark = true;
                 CafeGameManager.canMove = false;
                 sprites[0].enabled = true;
                 sprites[1].enabled = true;
-                colliders[1].enabled = true;
-
             }
             else
             {
@@ -42,21 +38,15 @@ public class CafeBot : MonoBehaviour {
                 CafeGameManager.canMove = true;
                 sprites[0].enabled = false;
                 sprites[1].enabled = false;
-                colliders[1].enabled = false;
             }
             clicked = false;
         }
-        else
-        {
+        else {
             clicked = false;
         }
     }
 
-    private void OnMouseDown()
-    {
-        Debug.Log("Clicked Couple");
+    public void OnTap() {
         clicked = true;
-       
-        //world.transform.position = Vector3.MoveTowards(world.transform.position , screenLoc ,  3000* Time.deltaTime);
     }
 }

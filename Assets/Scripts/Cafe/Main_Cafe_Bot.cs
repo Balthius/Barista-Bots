@@ -15,10 +15,10 @@ public class Main_Cafe_Bot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        
 	}
 
-    private void OnMouseDown()
+    public void OnTap()
     {
        sprRenderer.enabled = true;
        StartCoroutine(LoadMiniGame(name_of_mini_game));

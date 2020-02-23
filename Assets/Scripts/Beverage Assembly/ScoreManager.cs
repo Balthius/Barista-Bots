@@ -14,11 +14,13 @@ public class ScoreManager : MonoBehaviour
     }
     public void ChooseSprite(int score)
     {
+        Debug.Log("Set overlay active");
         overlayImage.SetActive(true);
         Debug.Log("Score" + score);
-        overlayImage.GetComponent<SpriteRenderer>().sprite = scoreSprites[score - 1];
+        overlayImage.GetComponent<SpriteRenderer>().sprite = scoreSprites[Mathf.Clamp(score,1, 5)-1];
         Time.timeScale = 0;
         Time.fixedDeltaTime = 0;
-        PlayerPrefs.SetInt("MinigameScore", score);
+
+        this.GetComponent<PushScore>().CommitScore(score);
     }
 }
