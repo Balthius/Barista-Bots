@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b3f91813e3fe4d3b948921b23107879, type: 3}
+  m_Name: ArrowAttack
+  m_EditorClassIdentifier: 
+  name: Arrow
+  description: A small arrow that hits for {power} damage.
+  portrait: {fileID: 21300078, guid: c94b0f5e590b2438c88588ebcea84c81, type: 3}
+  element: 0
+  prefab: {fileID: 1738155465057944, guid: 011688bbe62534a458b496ae0ece9f8c, type: 2}
+  attackType: 1
+  moveType: 1
+  hitTarget: 0
+  cost: 0
+  power: 20
+  count: 1
+  delayBetweenAttacks: 0
+  moveSpeed: 0
