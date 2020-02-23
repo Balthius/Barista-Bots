@@ -9,7 +9,6 @@ public class VirusAlertController : MonoBehaviour
 
     [SerializeField] private GameObject[] popUpAd;
 
-    public int minPopX, maxPopX, minPopY, maxPopY;
     private int virusChildCount;
 
     public bool virusAlertStatus;
@@ -68,9 +67,9 @@ public class VirusAlertController : MonoBehaviour
 
     IEnumerator CreatePopUp()
     {
-        int x = Random.Range(minPopX, maxPopX);
+        int x = Random.Range(-150, 150);
 
-        int y = Random.Range(minPopY, maxPopY);
+        int y = Random.Range(300, 600);
 
         int z = Random.Range(0, popUpAd.Length);
 
@@ -78,9 +77,8 @@ public class VirusAlertController : MonoBehaviour
         GameObject popUp = Instantiate(popUpAd[z], objPos, Quaternion.identity);
         popUp.transform.parent = this.transform;
         popUp.transform.position = this.transform.position + objPos;
-        popUp.transform.Rotate(0,0,90);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(5);
         StartCoroutine("CreatePopUp");
     }
 }

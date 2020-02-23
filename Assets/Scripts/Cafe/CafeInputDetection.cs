@@ -32,6 +32,7 @@ public class CafeInputDetection : MonoBehaviour
             {
                 Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
+
                 string name = hit.transform.name;
 
                 if (name != "GameManager")
@@ -83,6 +84,7 @@ public class CafeInputDetection : MonoBehaviour
                 {
                     Ray ray = mainCamera.ScreenPointToRay(touch.position);
                     RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
+
                     string name = hit.transform.name;
 
                     if (name != "GameManager")

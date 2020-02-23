@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -33,26 +32,10 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void OnEnable()
+    public void UpdateCafeFromMiniGameScore (int score)
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.name.Equals("Cafe")) {
-            if (PlayerPrefs.HasKey("cafeScore")) {
-                var score = PlayerPrefs.GetInt("cafeScore");
-                foreach (var spot in _spots) {
-                    spot.UpdateStateFromMiniGame(score);
-                }
-                PlayerPrefs.DeleteKey("cafeScore");
-            }
+        foreach (var spot in _spots) {
+            spot.UpdateStateFromMiniGame(score);
         }
     }
 }

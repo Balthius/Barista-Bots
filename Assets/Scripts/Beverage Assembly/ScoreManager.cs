@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
+    // Start is called before the first frame update
     [SerializeField] private Sprite[] scoreSprites;
     [SerializeField] private GameObject overlayImage;
+
 
     private void Start()
     {
