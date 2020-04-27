@@ -37,6 +37,9 @@ sysinfo.txt
 *.unitypackage
 
 
+
+
+Assets/RevisedProject/Sprites/*
 Assets/Sprites/*
 Assets/RevisedProject/Sprites/*
 Logs/Packages-Update.log
