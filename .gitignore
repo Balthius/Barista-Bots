@@ -39,8 +39,15 @@ sysinfo.txt
 
 
 
+<<<<<<< Updated upstream
 Assets/RevisedProject/Sprites/*
 Assets/Sprites/*
 Assets/RevisedProject/Sprites/*
+=======
+Assets/Sprites/*
+Assets/RevisedProject/Sprites/*
+
+>>>>>>> Stashed changes
 Logs/Packages-Update.log
 *.log
+*.7z
