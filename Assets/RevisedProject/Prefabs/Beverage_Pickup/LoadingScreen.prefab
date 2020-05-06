@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3651368777616280413}
   - component: {fileID: 3651368777616280412}
   m_Layer: 0
-  m_Name: Gallery_Title_05
+  m_Name: LoadingScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,6 +45,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:

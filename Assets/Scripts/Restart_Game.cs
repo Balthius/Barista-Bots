@@ -11,7 +11,7 @@ public class Restart_Game : MonoBehaviour {
     void Start () {
         sprRenderer = loadingScreen.GetComponent<SpriteRenderer>();
     }
-    private void OnMouseDown()
+    public void ReturnToCafe()
     {
         sprRenderer.enabled = true;
         StartCoroutine(RestartGame());

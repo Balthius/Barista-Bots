@@ -75,7 +75,6 @@ public class BattleGameManager : MonoBehaviour
         {
         finalscore = 5;
         }
-        this.GetComponent<PushScore>().CommitScore(score);
         scorePanel.GetComponent<ScoreManager>().ChooseSprite(finalscore);
     }
 }

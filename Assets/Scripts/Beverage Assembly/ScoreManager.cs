@@ -8,7 +8,7 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private Sprite[] scoreSprites;
     [SerializeField] private GameObject overlayImage;
-
+    [SerializeField] private ScoreHandler scoreHandler = null;
 
     private void Start()
     {
@@ -23,6 +23,6 @@ public class ScoreManager : MonoBehaviour
         Time.timeScale = 0;
         Time.fixedDeltaTime = 0;
 
-        this.GetComponent<PushScore>().CommitScore(score);
+        scoreHandler.IncreaseCurrency(score);
     }
 }

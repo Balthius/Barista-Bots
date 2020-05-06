@@ -5,7 +5,7 @@ using UnityEngine;
 public class SucceedManager : MonoBehaviour
 { private void OnTriggerEnter2D(Collider2D other)
     {
-
+        Debug.Log("Entered trigger");
         ArmController arm = other.gameObject.GetComponent<ArmController>();
         if(arm != null  && arm.hasCup)
         {

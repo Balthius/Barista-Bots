@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     public void RemoveLife()
     {
         strikes--;
-        
+        Debug.Log(strikes);
         if(strikes <= 0)
         {
             GameOver(currentScore);
@@ -67,7 +67,8 @@ public class GameManager : MonoBehaviour
     }
      
     private void GameOver(int score)
-    { scorePanel.SetActive(true);
+    { 
+        scorePanel.SetActive(true);
         if(score <= 3)
         {
             score = 3;
@@ -79,8 +80,6 @@ public class GameManager : MonoBehaviour
         scoreToPass = 5;
         }
 
-        this.GetComponent<PushScore>().CommitScore(score);
-       
         scorePanel.GetComponent<ScoreManager>().ChooseSprite(scoreToPass);
     }
    

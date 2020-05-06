@@ -5,19 +5,20 @@ using UnityEngine;
 public class ArmController : MonoBehaviour
 {
     // Start is called before the first frame update
-   
+    [SerializeField] private int reverseAtY = -1000;
+    [SerializeField] private int destroyAtY = 2000;//control destroyer
     [SerializeField] float yMovement, reverseMovement;
     private bool hasCollided = false;
 
     public bool hasObj = false, hasCup = false;
-    public GameObject hasHit;
+    public bool hasHit;
     private bool emptyHanded = true;
 
 
     // Update is called once per frame
     private void Start() 
     {
-
+        hasHit = false;
         reverseMovement = (yMovement * -1) * 1.3f;
     }
     void Update()
@@ -31,12 +32,17 @@ public class ArmController : MonoBehaviour
             transform.Translate(new Vector2(0,reverseMovement));
         }
     
-        if(hasHit != null && hasHit.gameObject.name == "FailWall")
+        if(!hasHit && transform.position.y <= reverseAtY)
         {
-            
+            Debug.Log("Reverse");
+            hasHit = true;
             emptyHanded = false;
            // errant hands keep getting past the wall when using trigger checks
            ObjectGrabbedCheck(false);
+        }
+        if (transform.position.y >= destroyAtY)
+        {
+            GameObject.Destroy(this.gameObject);
         }
 
     }
@@ -45,7 +51,6 @@ public class ArmController : MonoBehaviour
    
     private void OnTriggerEnter2D(Collider2D other) 
     {  
-        hasHit = other.gameObject;// used to debug
          if(!hasCollided)
         { 
             hasCollided = true;
