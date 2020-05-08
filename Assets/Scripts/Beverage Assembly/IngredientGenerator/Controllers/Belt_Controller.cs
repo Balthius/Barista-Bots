@@ -15,6 +15,7 @@ public class Belt_Controller : MonoBehaviour
    
     [SerializeField]
     GameObject Spawner;
+    public ScoreCanvasController canvasController = null;
 
 
     public static bool gameActive;
@@ -84,7 +85,7 @@ public class Belt_Controller : MonoBehaviour
         int totalSuccesses = Success / 3;
         int finalScore = Mathf.Clamp(totalSuccesses, 1,5);
 
-        scoreScreen.GetComponent<ScoreManager>().ChooseSprite(finalScore);
-        
+        canvasController.PushScore(finalScore);
+
     }
 }

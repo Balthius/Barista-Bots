@@ -23,6 +23,6 @@ public class ScoreCanvasController : MonoBehaviour
 
     public void PushScore(int finalScore)
     {
-        scorePanel.GetComponent<ScoreManager>().ChooseSprite(finalScore);
+        scorePanel.ChooseSprite(finalScore);
     }
 }

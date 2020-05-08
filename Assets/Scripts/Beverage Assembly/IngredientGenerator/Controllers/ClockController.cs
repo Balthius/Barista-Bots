@@ -15,7 +15,7 @@ public class ClockController : MonoBehaviour {
     }
     private void Update()
     {
-        Debug.Log(currentTime);
+        //Debug.Log(currentTime);
          currentTime -= Time.deltaTime;
         SetTimer(currentTime);
         if(currentTime <= 0)

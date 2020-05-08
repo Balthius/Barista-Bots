@@ -261,6 +261,25 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 108037466}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &390470308 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7811298590478925239, guid: 2fd5035cb4974e045b9428714e8310dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 108037466}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &390470310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390470308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bbfd815ee7105743b1f6f2dafca9a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scorePanel: {fileID: 870040167}
 --- !u!1 &489353612
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,12 +455,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3401449154644162232}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &870040165 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7809995579772074867, guid: 2fd5035cb4974e045b9428714e8310dc,
+--- !u!114 &870040167 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7811298591166989412, guid: 2fd5035cb4974e045b9428714e8310dc,
     type: 3}
   m_PrefabInstance: {fileID: 108037466}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf58bf73304ed0c40a5d171b56ea236b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &960661589 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5063317469540576257, guid: 2fd5035cb4974e045b9428714e8310dc,
@@ -607,7 +632,7 @@ MonoBehaviour:
   timeText: {fileID: 1609801593}
   bubbleManager: {fileID: 3401449155075700166, guid: 67092c42c50fced44be63a33a13f51e4,
     type: 3}
-  scorePanel: {fileID: 870040165}
+  scoreCanvasController: {fileID: 390470310}
   startTime: 30
 --- !u!20 &1437422667 stripped
 Camera:

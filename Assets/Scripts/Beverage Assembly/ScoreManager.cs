@@ -10,6 +10,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private GameObject overlayImage;
     [SerializeField] private ScoreHandler scoreHandler = null;
 
+
     private void Start()
     {
         overlayImage.SetActive(false);
@@ -19,7 +20,7 @@ public class ScoreManager : MonoBehaviour
         Debug.Log("Set overlay active");
         overlayImage.SetActive(true);
         Debug.Log("Score" + score);
-        overlayImage.GetComponent<Image>().sprite = scoreSprites[Mathf.Clamp(score,1, 5)-1];
+
         Time.timeScale = 0;
         Time.fixedDeltaTime = 0;
 
