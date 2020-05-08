@@ -7,19 +7,21 @@ public class ScoreManager : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private Sprite[] scoreSprites;
-    [SerializeField] private GameObject overlayImage;
+    [SerializeField] private Image overlayImage;
     [SerializeField] private ScoreHandler scoreHandler = null;
 
 
     private void Start()
     {
-        overlayImage.SetActive(false);
+        overlayImage.gameObject.SetActive(false);
     }
     public void ChooseSprite(int score)
     {
         Debug.Log("Set overlay active");
-        overlayImage.SetActive(true);
+        overlayImage.gameObject.SetActive(true);
         Debug.Log("Score" + score);
+
+        overlayImage.sprite = scoreSprites[score - 1];
 
         Time.timeScale = 0;
         Time.fixedDeltaTime = 0;

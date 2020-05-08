@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        scorePanel.SetActive(false);
         StartCoroutine(SpawnArms());
         SucceedManager.SuccessEvent += DishGrabbed;
         SucceedManager.FailEvent += RemoveLife;
@@ -21,9 +20,9 @@ public class GameManager : MonoBehaviour
 
 
     IEnumerator SpawnArms()
-    {   CreateArm();
+    {   
         yield return new WaitForSeconds(armSpawnRate);
-
+        CreateArm();
         StartCoroutine(SpawnArms());
     }
     private void DishGrabbed()
@@ -68,8 +67,7 @@ public class GameManager : MonoBehaviour
     }
      
     private void GameOver(int score)
-    { 
-        scorePanel.SetActive(true);
+    {
         if(score <= 3)
         {
             score = 3;
