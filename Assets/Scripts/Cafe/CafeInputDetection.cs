@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine;
 
 public class CafeInputDetection : MonoBehaviour
 {
@@ -32,7 +29,6 @@ public class CafeInputDetection : MonoBehaviour
             {
                 Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
-
                 string name = hit.transform.name;
 
                 if (name != "GameManager")
@@ -84,7 +80,6 @@ public class CafeInputDetection : MonoBehaviour
                 {
                     Ray ray = mainCamera.ScreenPointToRay(touch.position);
                     RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
-
                     string name = hit.transform.name;
 
                     if (name != "GameManager")
