@@ -570,6 +570,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7811298591166989412, guid: 2fd5035cb4974e045b9428714e8310dc,
+        type: 3}
+      propertyPath: overlayImage
+      value: 
+      objectReference: {fileID: 1807330838}
     - target: {fileID: 8032687067444554895, guid: 2fd5035cb4974e045b9428714e8310dc,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -587,6 +592,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fd5035cb4974e045b9428714e8310dc, type: 3}
+--- !u!1 &1807330838 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5063317469540576257, guid: 2fd5035cb4974e045b9428714e8310dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1807330837}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1825543078
 PrefabInstance:
   m_ObjectHideFlags: 0

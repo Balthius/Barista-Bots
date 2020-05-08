@@ -11,8 +11,9 @@ public class GameManager : MonoBehaviour
 
     private int currentScore;
 
-    private void OnEnable() 
+    private void OnEnable()
     {
+        scorePanel.SetActive(false);
         StartCoroutine(SpawnArms());
         SucceedManager.SuccessEvent += DishGrabbed;
         SucceedManager.FailEvent += RemoveLife;

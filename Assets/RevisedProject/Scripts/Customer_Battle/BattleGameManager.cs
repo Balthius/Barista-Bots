@@ -6,7 +6,8 @@ using TMPro;
 public class BattleGameManager : MonoBehaviour
 {
     public TMP_Text scoreText, timeText;
-    public GameObject bubbleManager, scorePanel;
+    public GameObject bubbleManager;
+    public ScoreCanvasController scoreCanvasController;
 
     private bool gameEnded = false;
     static int score = 0;
@@ -63,7 +64,7 @@ public class BattleGameManager : MonoBehaviour
     }
     private void GameOver()
     {
-        scorePanel.SetActive(true);
+        scoreCanvasController.SetPanelActive();
         int finalscore = score/20;
 
         if(finalscore <= 0)
@@ -75,6 +76,6 @@ public class BattleGameManager : MonoBehaviour
         {
         finalscore = 5;
         }
-        scorePanel.GetComponent<ScoreManager>().ChooseSprite(finalscore);
+        scoreCanvasController.PushScore(finalscore);
     }
 }
