@@ -268,7 +268,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3b26a678eefa0da469e39f6aa77f6c2a, type: 3}
   - {fileID: 21300000, guid: 09d36e0b5c37c5e4eab9e0442db7a37e, type: 3}
   - {fileID: 21300000, guid: 3871233a5fdf2604a98b0201ced7c3e7, type: 3}
-  overlayImage: {fileID: 0}
+  overlayImage: {fileID: 7009409634355444054}
+  button: {fileID: 868864718774811390}
   scoreHandler: {fileID: 11400000, guid: c94cce3ee696a4e4c9f6150bee57f956, type: 2}
 --- !u!1 &7811298590478925239
 GameObject:

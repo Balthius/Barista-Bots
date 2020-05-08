@@ -1,21 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SucceedManager : MonoBehaviour
-{ private void OnTriggerEnter2D(Collider2D other)
+{
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Entered trigger");
         ArmController arm = other.gameObject.GetComponent<ArmController>();
-        if(arm != null  && arm.hasCup)
+        if (arm != null && arm.hasCup)
         {
             SuccessEvent();
-            Debug.Log("Succeeded");
         }
         if (arm != null && !arm.hasCup)
         {
             FailEvent();
-            Debug.Log("Failed");
         }
         Destroy(other.gameObject);
     }
