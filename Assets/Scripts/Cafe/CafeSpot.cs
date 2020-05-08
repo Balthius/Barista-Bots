@@ -40,6 +40,9 @@ public class CafeSpot : MonoBehaviour
         subscriber = this.GetComponent<EventSubscriber>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         bot = this.transform.GetChild(0);
+        // TODO: remove
+        useMinutes = true;
+        Initialize();
     }
 
     void OnEnable ()
@@ -106,7 +109,13 @@ public class CafeSpot : MonoBehaviour
             --refreshCycles;
         }
 
-        UpdateState();
+        if (PlayerPrefs.HasKey("cafeScore")) {
+            var score = PlayerPrefs.GetInt("cafeScore");
+            UpdateStateFromMiniGame(score);
+            PlayerPrefs.DeleteKey("cafeScore");
+        } else {
+            UpdateState();
+        }
     }
 
     public void UpdateStateFromMiniGame (int score)
