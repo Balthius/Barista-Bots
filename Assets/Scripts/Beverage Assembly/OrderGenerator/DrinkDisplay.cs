@@ -6,10 +6,7 @@ using UnityEngine.UI;
 public class DrinkDisplay : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] ingredientObj;
-
-    [SerializeField] private Sprite clearedObject;
-    
+    private GameObject[] ingredientObj;    
     
     [SerializeField]
     private Sprite cleared;
@@ -37,11 +34,11 @@ public class DrinkDisplay : MonoBehaviour
         for (int i = 0; i < ingredientObj.Length; i++)
         {
             SpriteRenderer spriteObj = ingredientObj[i].GetComponent<SpriteRenderer>();
-            if (name == spriteObj.sprite.name && spriteObj.sprite != null)
+            if (spriteObj.sprite != null && name == spriteObj.sprite.name)
             {
                 Debug.Log("Cup has cleared");
                 AudioManager.instance.PlaySingle(clearedClip);
-                spriteObj.sprite = clearedObject;
+                spriteObj.sprite = null;
                 Destroy(sentIngredient);
                 break;
             }
@@ -58,7 +55,7 @@ public class DrinkDisplay : MonoBehaviour
         for(int i = 0; i < ingredientObj.Length; i++)
         {
             SpriteRenderer spriteObj = ingredientObj[i].GetComponent<SpriteRenderer>();
-            if (spriteObj.sprite.name == clearedObject.name)
+            if (spriteObj.sprite == null)
             {
                 x++;
                 if(x == ingredientObj.Length)

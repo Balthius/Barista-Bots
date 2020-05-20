@@ -51,7 +51,6 @@ public class OrderGenerator : MonoBehaviour
     private void SlowMoveDrinks()
     {
         step = Time.deltaTime * 1200;
-        Debug.Log(step);
 
         GameObject activeOrderSpot = GameObject.FindGameObjectWithTag("ActiveOrder");
         Vector3 target = activeOrderSpot.transform.position;
@@ -90,7 +89,6 @@ public class OrderGenerator : MonoBehaviour
 
     public void OverrideDestroy()
     {
-        Debug.Log("DestroyMe");
         Destroy(this.gameObject);
     }
 
