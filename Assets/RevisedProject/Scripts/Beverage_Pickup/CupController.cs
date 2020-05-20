@@ -31,7 +31,7 @@ public class CupController : MonoBehaviour
         }
     }
 
-    private void OnMouseUp()
+    public void OnMouseUp()
     {           
 
         playerTouching = false;

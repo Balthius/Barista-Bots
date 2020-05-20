@@ -10,6 +10,7 @@ public class ArmController : MonoBehaviour
     public bool hasObj = false, hasCup = false;
     public bool hasHit;
     private bool emptyHanded = true;
+    private bool isReturning;
 
     // Update is called once per frame
     private void Start()
@@ -29,9 +30,10 @@ public class ArmController : MonoBehaviour
             transform.Translate(new Vector2(0, reverseMovement));
         }
 
-        if (!hasHit && transform.position.y <= reverseAtY)
+        if (!isReturning && !hasHit && transform.position.y <= reverseAtY)
         {
             Debug.Log("Reverse");
+            isReturning = true;
             hasHit = true;
             emptyHanded = false;
             // errant hands keep getting past the wall when using trigger checks
@@ -41,7 +43,7 @@ public class ArmController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!hasCollided)
+        if (!isReturning && !hasCollided)
         {
             hasCollided = true;
             CupController otherCup = other.gameObject.GetComponent<CupController>();
@@ -50,6 +52,7 @@ public class ArmController : MonoBehaviour
                 ObjectGrabbedCheck(true);
                 
                 other.transform.parent = this.gameObject.transform;
+                other.GetComponent<CupController>().OnMouseUp();
 
                 Destroy(other.gameObject.GetComponent<BoxCollider2D>());
             }
