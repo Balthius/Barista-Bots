@@ -609,7 +609,7 @@ MonoBehaviour:
   timeText: {fileID: 1609801593}
   bubbleManager: {fileID: 672352475}
   ScoreManager: {fileID: 7811298591274959166}
-  startTime: 5
+  startTime: 30
 --- !u!20 &1437422667 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2231970738813602653, guid: 1de795505e3c877498328a4903f5dd57,
