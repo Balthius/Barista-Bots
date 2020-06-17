@@ -7,20 +7,13 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField] private GameObject neutralBubble, positiveBubble, negativeBubble;
     [SerializeField] private int negX, posX, negY, posY, neutralChance, positiveChance, negativeChance ;//Chances not implemented
 
-
-    private void Update() 
-    {
-
-    }
-
     private void Start() {
-        
         StartCoroutine(SpawnBubble());
     }
 
     private IEnumerator SpawnBubble()
     {
-        GameObject bubble = Instantiate(ChooseBubble(), ChooseLocation(), Quaternion.identity);
+        GameObject bubble = Instantiate(ChooseBubble(), ChooseLocation(), Quaternion.identity, transform);
         bubble.GetComponent<BubbleController>().SetTargetLocation(ChooseLocation());
         yield return new WaitForSeconds(1f);
         StartCoroutine(SpawnBubble());
@@ -76,5 +69,11 @@ public class BubbleSpawner : MonoBehaviour
        return new Vector3(x, y, 0);
     }
 
-
+     public void StopSpawning()
+     {
+          StopAllCoroutines();
+          for (int i = transform.childCount - 1; i >= 0; --i) {
+               Destroy(transform.GetChild(i).gameObject);
+          }
+     }
 }

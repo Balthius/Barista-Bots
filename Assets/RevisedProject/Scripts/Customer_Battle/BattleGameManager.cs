@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -7,7 +6,7 @@ public class BattleGameManager : MonoBehaviour
 {
     public TMP_Text scoreText, timeText;
     public GameObject bubbleManager;
-    public ScoreCanvasController scoreCanvasController;
+    public ScoreManager ScoreManager;
 
     private bool gameEnded = false;
     static int score = 0;
@@ -25,15 +24,20 @@ public class BattleGameManager : MonoBehaviour
 
     private void Update()
     {
-        score = Mathf.Clamp(score, 0, 100);
-        currentTime -= Time.deltaTime;
-        scoreText.text = score.ToString();
-        timeText.text = currentTime.ToString("0.00");
-
-        if(currentTime <= 0 && !gameEnded)
+        if (currentTime <= 0)
         {
-            gameEnded = true;
-            GameOver();
+            if (!gameEnded) 
+            {
+                timeText.text = "0.00";
+                gameEnded = true;
+                GameOver();
+            }
+        }
+        else {
+            score = Mathf.Clamp(score, 0, 100);
+            currentTime -= Time.deltaTime;
+            scoreText.text = score.ToString();
+            timeText.text = currentTime.ToString("0.00");
         }
     }
 
@@ -64,18 +68,13 @@ public class BattleGameManager : MonoBehaviour
     }
     private void GameOver()
     {
-        scoreCanvasController.SetPanelActive();
-        int finalscore = score/20;
-
-        if(finalscore <= 0)
-        {
-            score = 0;
+        StopAllCoroutines();
+        var spawners = FindObjectsOfType<BubbleSpawner>();
+        foreach (var spawner in spawners) {
+            spawner.StopSpawning();
         }
-        
-        if(finalscore > 5)
-        {
-        finalscore = 5;
-        }
-        scoreCanvasController.PushScore(finalscore);
+        int finalscore = System.Math.Max(System.Math.Min(score/20, 5), 1);
+        ScoreManager.ChooseSprite(finalscore);
+        timeText.text = "";
     }
 }
